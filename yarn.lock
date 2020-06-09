@@ -8845,6 +8845,11 @@ react-scripts@3.4.1:
   optionalDependencies:
     fsevents "2.1.2"
 
+react-switch-case@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/react-switch-case/-/react-switch-case-1.5.0.tgz#e0f95f539f29e8a92014369b390daf679a9831bf"
+  integrity sha512-JjmsIxsi8M7NLvDhManc/1xHmPNXTsZ/kX9bNY7mzLVFOQFr3zH5j8kwiZDY1yTMpu/SyAJkj0+N4gbf6xydGA==
+
 react-transition-group@^4.4.0:
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.1.tgz#63868f9325a38ea5ee9535d828327f85773345c9"

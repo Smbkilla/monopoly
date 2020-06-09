@@ -1,33 +1,48 @@
 import React from 'react';
 
-import Card from "@material-ui/core/Card";
 import Grid from "@material-ui/core/Grid";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
-import Field from "./components/Field/Field";
 import colors from "./constants/colors";
-import orientation from "./constants/orientation";
+import Field from "./components/Field/Field";
+import fieldTypes from "./constants/fieldType";
 
 import './App.css';
 
-const player = (name) => ({
+const player = (name, color) => ({
   name,
   icon: <AccountCircleIcon color="inherit"/>,
-  color: colors.PLAYER_COLORS.RED,
+  color,
 });
 
 function App() {
   return (
     <Grid container justify="center">
-      <Field backgroundColor={colors.BOARD_COLORS.GREEN}
-             orientation={orientation.BOTTOM}
+        <Field color={colors.BOARD_COLORS.GREEN}
+               type={fieldTypes.PROPERTY}
+               title="ULICA OVA I ONA"
+               price="200K"
+               players={[
+                 player("Player1", colors.PLAYER_COLORS.BLUE),
+                 player("Player2", colors.PLAYER_COLORS.BLUE),
+                 player("Player3", colors.PLAYER_COLORS.BLUE),
+                 player("Player4", colors.PLAYER_COLORS.BLUE),
+               ]}/>
+      <Field type={fieldTypes.CHANCE}
              title="ULICA OVA I ONA"
-             price="200K"
              players={[
-               player("Player1"),
-               player("Player2"),
-               player("Player3"),
-               player("Player4"),
+               player("Player1", colors.PLAYER_COLORS.GREEN),
+               player("Player2", colors.PLAYER_COLORS.GREEN),
+               player("Player3", colors.PLAYER_COLORS.GREEN),
+               player("Player4", colors.PLAYER_COLORS.GREEN),
+             ]}/>
+      <Field type={fieldTypes.COMMUNITY_CHEST}
+             title="ULICA OVA I ONA"
+             players={[
+               player("Player2", colors.PLAYER_COLORS.RED),
+               player("Player1", colors.PLAYER_COLORS.RED),
+               player("Player3", colors.PLAYER_COLORS.RED),
+               player("Player4", colors.PLAYER_COLORS.RED),
              ]}/>
     </Grid>
   );
