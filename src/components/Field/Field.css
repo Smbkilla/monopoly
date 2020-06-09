@@ -7,3 +7,9 @@
     text-align: center;
     padding-top: 10px;
 }
+
+.icon {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
