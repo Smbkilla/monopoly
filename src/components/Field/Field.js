@@ -18,8 +18,8 @@ import fieldType from "../../constants/fieldType";
 import "./Field.css";
 
 const iconStyle = {
-    width: "60%",
-    height: "60%",
+  width: "60%",
+  height: "60%",
 };
 
 export default function Field({type, ...props}) {
@@ -66,20 +66,19 @@ function PropertyFieldContent({players = [], title, price, color}) {
     <React.Fragment>
       <CardHeader style={{backgroundColor: color}}/>
       <CardContent>
-        <Typography className="title" variant="h5" component="h2">
+        <Typography className="title" variant="button" component="h6">
           {title}
         </Typography>
-        <Grid container justify="center" spacing={5}>
+        <Grid container justify="center" spacing={1}>
           {players.map(player => (
             <Grid item xs={6} container justify="space-around">
               <div style={{color: player.color}}>
                 {player.icon}
               </div>
-              {player.name}
             </Grid>
           ))}
         </Grid>
-        <Typography className="price" variant="h5" component="h2">
+        <Typography className="price" variant="button" component="h6">
           {price}
         </Typography>
       </CardContent>
@@ -91,13 +90,13 @@ function IconFieldContent({icon, title, price}) {
   return (
     <React.Fragment>
       <CardContent>
-        <Typography className="title" variant="h5" component="h2">
+        <Typography className="title" variant="button" component="h6">
           {title}
         </Typography>
         <div className="icon">
           {icon}
         </div>
-        <Typography className="price" variant="h5" component="h2">
+        <Typography className="title" variant="button" component="h6">
           {price}
         </Typography>
       </CardContent>
