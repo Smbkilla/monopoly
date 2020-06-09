@@ -6,7 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import Field from "../Field/Field";
 import colors from "../../constants/colors";
-import orientation from "../../constants/orientation";
+import fieldTypes from "../../constants/fieldType";
 
 const player = name => ({
   name,
@@ -17,573 +17,521 @@ const player = name => ({
 const Board = () => {
   return (
     <Grid container direction="column">
-      <Grid
-        container
-        direction="row"
-        justify="center"
-        alignContent="center"
-      >
+      
+      {/* prvi redak */}
+      <Grid container direction="row" justify="space-around" alignContent="center" style={{marginBottom: 60, marginTop: 20}}>
         <div className={styles.boardCard}>
           <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 1"
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
             price="200K"
             players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
             ]}
           />
         </div>
         <div className={styles.boardCard}>
           <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 2"
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
             price="200K"
             players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
             ]}
           />
         </div>
         <div className={styles.boardCard}>
           <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 3"
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
             price="200K"
             players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
             ]}
           />
         </div>
         <div className={styles.boardCard}>
           <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 5"
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
             price="200K"
             players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
             ]}
           />
         </div>
         <div className={styles.boardCard}>
           <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 6"
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
             price="200K"
             players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
             ]}
           />
         </div>
         <div className={styles.boardCard}>
           <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 7"
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
             price="200K"
             players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
             ]}
           />
         </div>
         <div className={styles.boardCard}>
           <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 8"
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
             price="200K"
             players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 9"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 10"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 11"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 12"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 1"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 2"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 3"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 5"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 6"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 7"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 8"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 9"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 10"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 5"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 6"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 7"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 8"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 9"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 10"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 5"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 6"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 7"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 8"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 9"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 10"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 5"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 6"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 7"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 8"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 9"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 10"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 9"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
-            ]}
-          />
-        </div>
-        <div className={styles.boardCard}>
-          <Field
-            backgroundColor={colors.BOARD_COLORS.GREEN}
-            orientation={orientation.BOTTOM}
-            title="ULICA OVA I ONA 10"
-            price="200K"
-            players={[
-              player("Player1"),
-              player("Player2"),
-              player("Player3"),
-              player("Player4")
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
             ]}
           />
         </div>
       </Grid>
+
+      {/* drugi redak */}
+
+      <Grid container direction="row" justify="space-around" alignContent="center" style={{marginBottom: 60, marginTop: 20}}>
+        <div className={styles.boardCard}>
+          <Field
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
+            price="200K"
+            players={[
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
+            ]}
+          />
+        </div>
+        <div className={styles.boardCard}>
+          <Field
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
+            price="200K"
+            players={[
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
+            ]}
+          />
+        </div>
+        <div className={styles.boardCard}>
+          <Field
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
+            price="200K"
+            players={[
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
+            ]}
+          />
+        </div>
+        <div className={styles.boardCard}>
+          <Field
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
+            price="200K"
+            players={[
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
+            ]}
+          />
+        </div>
+        <div className={styles.boardCard}>
+          <Field
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
+            price="200K"
+            players={[
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
+            ]}
+          />
+        </div>
+        <div className={styles.boardCard}>
+          <Field
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
+            price="200K"
+            players={[
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
+            ]}
+          />
+        </div>
+        <div className={styles.boardCard}>
+          <Field
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
+            price="200K"
+            players={[
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
+            ]}
+          />
+        </div>
+      </Grid>
+
+      {/* treci redak */}
+
+      <Grid container direction="row" justify="space-around" alignContent="center" style={{marginBottom: 60, marginTop: 20}}>
+        <div className={styles.boardCard}>
+          <Field
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
+            price="200K"
+            players={[
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
+            ]}
+          />
+        </div>
+        <div className={styles.boardCard}>
+          <Field
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
+            price="200K"
+            players={[
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
+            ]}
+          />
+        </div>
+        <div className={styles.boardCard}>
+          <Field
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
+            price="200K"
+            players={[
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
+            ]}
+          />
+        </div>
+        <div className={styles.boardCard}>
+          <Field
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
+            price="200K"
+            players={[
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
+            ]}
+          />
+        </div>
+        <div className={styles.boardCard}>
+          <Field
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
+            price="200K"
+            players={[
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
+            ]}
+          />
+        </div>
+        <div className={styles.boardCard}>
+          <Field
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
+            price="200K"
+            players={[
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
+            ]}
+          />
+        </div>
+        <div className={styles.boardCard}>
+          <Field
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
+            price="200K"
+            players={[
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
+            ]}
+          />
+        </div>
+      </Grid>
+
+      {/* cetvrti redak */}
+
+      <Grid container direction="row" justify="space-around" alignContent="center" style={{marginBottom: 60, marginTop: 20}}>
+        <div className={styles.boardCard}>
+          <Field
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
+            price="200K"
+            players={[
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
+            ]}
+          />
+        </div>
+        <div className={styles.boardCard}>
+          <Field
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
+            price="200K"
+            players={[
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
+            ]}
+          />
+        </div>
+        <div className={styles.boardCard}>
+          <Field
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
+            price="200K"
+            players={[
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
+            ]}
+          />
+        </div>
+        <div className={styles.boardCard}>
+          <Field
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
+            price="200K"
+            players={[
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
+            ]}
+          />
+        </div>
+        <div className={styles.boardCard}>
+          <Field
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
+            price="200K"
+            players={[
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
+            ]}
+          />
+        </div>
+        <div className={styles.boardCard}>
+          <Field
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
+            price="200K"
+            players={[
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
+            ]}
+          />
+        </div>
+        <div className={styles.boardCard}>
+          <Field
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
+            price="200K"
+            players={[
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
+            ]}
+          />
+        </div>
+      </Grid>
+
+      {/* peti redak */}
+
+      <Grid container direction="row" justify="space-around" alignContent="center" style={{marginBottom: 80, marginTop: 20}}>
+        <div className={styles.boardCard}>
+          <Field
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
+            price="200K"
+            players={[
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
+            ]}
+          />
+        </div>
+        <div className={styles.boardCard}>
+          <Field
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
+            price="200K"
+            players={[
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
+            ]}
+          />
+        </div>
+        <div className={styles.boardCard}>
+          <Field
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
+            price="200K"
+            players={[
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
+            ]}
+          />
+        </div>
+        <div className={styles.boardCard}>
+          <Field
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
+            price="200K"
+            players={[
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
+            ]}
+          />
+        </div>
+        <div className={styles.boardCard}>
+          <Field
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
+            price="200K"
+            players={[
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
+            ]}
+          />
+        </div>
+        <div className={styles.boardCard}>
+          <Field
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
+            price="200K"
+            players={[
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
+            ]}
+          />
+        </div>
+        <div className={styles.boardCard}>
+          <Field
+            color={colors.BOARD_COLORS.GREEN}
+            type={fieldTypes.PROPERTY}
+            title="ULICA OVA I ONA"
+            price="200K"
+            players={[
+              player("Player1", colors.PLAYER_COLORS.BLUE),
+              player("Player2", colors.PLAYER_COLORS.BLUE),
+              player("Player3", colors.PLAYER_COLORS.BLUE),
+              player("Player4", colors.PLAYER_COLORS.BLUE)
+            ]}
+          />
+        </div>
+      </Grid>
+    
     </Grid>
   );
 };
