@@ -1,0 +1,15 @@
+.boardCard {
+    height: 255px;
+    width: 180px;
+    margin-bottom: 10px;
+}
+
+.boardCardSide {
+    height: 100px;
+    width: 155px;
+}
+
+.boardCardCorner {
+    height: 255px;
+    width: 252px;
+}
