@@ -1,19 +1,22 @@
-import React, {useState, useContext} from "react";
+import React, {useContext, useState} from "react";
 import {useHistory} from "react-router-dom";
 
 import _ from "lodash";
-import Grid from "@material-ui/core/Grid";
-import TextField from "@material-ui/core/TextField";
-import MenuItem from "@material-ui/core/MenuItem";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import TableContainer from "@material-ui/core/TableContainer";
-import {Paper} from "@material-ui/core";
-import Table from "@material-ui/core/Table";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import TableCell from "@material-ui/core/TableCell";
-import TableBody from "@material-ui/core/TableBody";
+import {
+  Button,
+  Grid,
+  MenuItem,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  TextField,
+  Typography
+} from "@material-ui/core";
+
 
 import {GameContext} from "../../App";
 import playerColors from "../../constants/playerColor";

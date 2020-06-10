@@ -11,12 +11,10 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import MenuIcon from '@material-ui/icons/Menu';
-import LocalParkingIcon from '@material-ui/icons/LocalParking';
-import HomeIcon from '@material-ui/icons/Home';
-import InputIcon from '@material-ui/icons/Input';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import AddToQueueIcon from '@material-ui/icons/AddToQueue';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import HomeIcon from '@material-ui/icons/Home';
+import MenuIcon from '@material-ui/icons/Menu';
 import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
 
 import {ElevationScroll} from "./ElevationScroll"
