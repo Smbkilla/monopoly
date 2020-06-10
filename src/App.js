@@ -36,7 +36,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <GameContext.Provider value={{game, setGame}}>
           <BrowserRouter>
-            {/*<NavBar/>*/}
+            <NavBar/>
             <Route path='/home' component={Home}/>
             <Route path='/newGame' component={NewGame}/>
             <Route path='/currentGame' component={Board}/>
