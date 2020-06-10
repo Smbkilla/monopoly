@@ -16,4 +16,5 @@ export default {
   [playerNames.RAJESH]: rajesh,
   [playerNames.AMY]: amy,
   [playerNames.BERNADETTE]: bernadette,
+  [playerNames.RICARDO_SHILLY_SHALLY]: leonard,
 }

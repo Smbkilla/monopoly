@@ -6,6 +6,7 @@ import teal from '@material-ui/core/colors/teal';
 import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
 
 import Board from "./components/Board/Board";
+import Home from "./components/Home/Home";
 import NavBar from "./components/NavBar";
 import NewGame from "./components/NewGame/NewGame";
 
@@ -35,8 +36,8 @@ function App() {
       <ThemeProvider theme={theme}>
         <GameContext.Provider value={{game, setGame}}>
           <BrowserRouter>
-            <NavBar/>
-            {/*<Route exact path='/home' component={Home}/>*/}
+            {/*<NavBar/>*/}
+            <Route path='/home' component={Home}/>
             <Route path='/newGame' component={NewGame}/>
             <Route path='/currentGame' component={Board}/>
           </BrowserRouter>

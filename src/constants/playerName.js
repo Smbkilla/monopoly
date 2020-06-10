@@ -6,4 +6,5 @@ export default {
   RAJESH: "Rajesh",
   AMY: "Amy",
   BERNADETTE: "Bernadette",
+  RICARDO_SHILLY_SHALLY: "Ricardo Shilly-Shally",
 }
