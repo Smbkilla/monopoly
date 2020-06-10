@@ -17,6 +17,9 @@ import Switch, {Case, Default} from "react-switch-case";
 import fieldType from "../../constants/fieldType";
 
 import "./Field.css";
+import Avatar from "@material-ui/core/Avatar";
+
+import playerIcons from "../../constants/playerIcon";
 
 const iconStyle = {
   width: "70%",
@@ -59,9 +62,7 @@ export default function Field({type, players = [], ...props}) {
       </Card>
       <div className="players">
         {players.map(player => (
-          <div className="player" style={{color: player.color}}>
-            {player.icon}
-          </div>
+          <img className="player" alt={player.name} src={playerIcons[player.name]}/>
         ))}
       </div>
     </div>
