@@ -60,7 +60,7 @@ export default function Field({type, players = [], ...props}) {
       </Card>
       <div className="players">
         {players.map(player => (
-          <img className="player" alt={player.name} src={playerIcons[player.name]}/>
+          <img className="player" alt={player.name} src={playerIcons[player.name]} style={{borderColor: player.color}}/>
         ))}
       </div>
     </div>

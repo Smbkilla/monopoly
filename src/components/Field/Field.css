@@ -31,7 +31,10 @@
     align-content: center;
     align-items: center;
     border-radius: 50%;
-    height: 50%;
+    height: 45%;
+    border: 3px solid;
+    margin: 1%;
+    box-shadow: 1px 1px 5px #888888;
 }
 
 .Card {
