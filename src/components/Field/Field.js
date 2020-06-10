@@ -4,22 +4,20 @@ import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
-import NotListedLocationIcon from "@material-ui/icons/NotListedLocation";
-import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import LocalParkingIcon from '@material-ui/icons/LocalParking';
 import LockIcon from '@material-ui/icons/Lock';
-import TrainIcon from '@material-ui/icons/Train';
+import NotListedLocationIcon from "@material-ui/icons/NotListedLocation";
 import RedeemIcon from "@material-ui/icons/Redeem";
+import TrainIcon from '@material-ui/icons/Train';
 import Switch, {Case, Default} from "react-switch-case";
 
 import fieldType from "../../constants/fieldType";
+import playerIcons from "../../constants/playerIcon";
 
 import "./Field.css";
-import Avatar from "@material-ui/core/Avatar";
 
-import playerIcons from "../../constants/playerIcon";
 
 const iconStyle = {
   width: "70%",
