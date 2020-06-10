@@ -9,6 +9,7 @@ import NotListedLocationIcon from "@material-ui/icons/NotListedLocation";
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import LocalParkingIcon from '@material-ui/icons/LocalParking';
+import LockIcon from '@material-ui/icons/Lock';
 import TrainIcon from '@material-ui/icons/Train';
 import RedeemIcon from "@material-ui/icons/Redeem";
 import Switch, {Case, Default} from "react-switch-case";
@@ -18,50 +19,56 @@ import fieldType from "../../constants/fieldType";
 import "./Field.css";
 
 const iconStyle = {
-  width: "60%",
+  width: "70%",
   height: "60%",
 };
 
-export default function Field({type, ...props}) {
+export default function Field({type, players = [], ...props}) {
   return (
-    <Card className="Card">
-      <Switch condition={type}>
-        <Case value={fieldType.PROPERTY}>
-          <PropertyFieldContent {...props}/>
-        </Case>
-        <Case value={fieldType.CHANCE}>
-          <IconFieldContent {...props} icon={<NotListedLocationIcon style={iconStyle}/>}/>
-        </Case>
-        <Case value={fieldType.COMMUNITY_CHEST}>
-          <IconFieldContent {...props} icon={<RedeemIcon style={iconStyle}/>}/>
-        </Case>
-        <Case value={fieldType.COMMUNITY_CHEST}>
-          <IconFieldContent {...props} icon={<RedeemIcon style={iconStyle}/>}/>
-        </Case>
-        <Case value={fieldType.START}>
-          <IconFieldContent {...props} icon={<KeyboardArrowRightIcon style={iconStyle}/>}/>
-        </Case>
-        <Case value={fieldType.JAIL}>
-          <IconFieldContent {...props} icon={<KeyboardArrowRightIcon style={iconStyle}/>}/>
-        </Case>
-        <Case value={fieldType.GO_TO_JAIL}>
-          <IconFieldContent {...props} icon={<ExitToAppIcon style={iconStyle}/>}/>
-        </Case>
-        <Case value={fieldType.CHILL}>
-          <IconFieldContent {...props} icon={<LocalParkingIcon style={iconStyle}/>}/>
-        </Case>
-        <Case value={fieldType.CHOO_CHOO}>
-          <IconFieldContent {...props} icon={<TrainIcon style={iconStyle}/>}/>
-        </Case>
-        <Default>
-          null
-        </Default>
-      </Switch>
-    </Card>
+    <div className="Card">
+      <Card>
+        <Switch condition={type}>
+          <Case value={fieldType.PROPERTY}>
+            <PropertyFieldContent {...props}/>
+          </Case>
+          <Case value={fieldType.CHANCE}>
+            <IconFieldContent {...props} icon={<NotListedLocationIcon style={iconStyle}/>}/>
+          </Case>
+          <Case value={fieldType.COMMUNITY_CHEST}>
+            <IconFieldContent {...props} icon={<RedeemIcon style={iconStyle}/>}/>
+          </Case>
+          <Case value={fieldType.START}>
+            <IconFieldContent {...props} icon={<KeyboardArrowRightIcon style={iconStyle}/>}/>
+          </Case>
+          <Case value={fieldType.JAIL}>
+            <IconFieldContent {...props} icon={<LockIcon style={iconStyle}/>}/>
+          </Case>
+          <Case value={fieldType.GO_TO_JAIL}>
+            <IconFieldContent {...props} icon={<ExitToAppIcon style={iconStyle}/>}/>
+          </Case>
+          <Case value={fieldType.CHILL}>
+            <IconFieldContent {...props} icon={<LocalParkingIcon style={iconStyle}/>}/>
+          </Case>
+          <Case value={fieldType.CHOO_CHOO}>
+            <IconFieldContent {...props} icon={<TrainIcon style={iconStyle}/>}/>
+          </Case>
+          <Default>
+            null
+          </Default>
+        </Switch>
+      </Card>
+      <div className="players">
+        {players.map(player => (
+          <div className="player" style={{color: player.color}}>
+            {player.icon}
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }
 
-function PropertyFieldContent({players = [], title, price, color}) {
+function PropertyFieldContent({title, price, color}) {
   return (
     <React.Fragment>
       <CardHeader style={{backgroundColor: color}}/>
@@ -69,15 +76,6 @@ function PropertyFieldContent({players = [], title, price, color}) {
         <Typography className="title" variant="button" component="h6">
           {title}
         </Typography>
-        <Grid container justify="center" spacing={1}>
-          {players.map(player => (
-            <Grid item xs={6} container justify="space-around">
-              <div style={{color: player.color}}>
-                {player.icon}
-              </div>
-            </Grid>
-          ))}
-        </Grid>
         <Typography className="price" variant="button" component="h6">
           {price}
         </Typography>
@@ -89,6 +87,7 @@ function PropertyFieldContent({players = [], title, price, color}) {
 function IconFieldContent({icon, title, price}) {
   return (
     <React.Fragment>
+      <CardHeader/>
       <CardContent>
         <Typography className="title" variant="button" component="h6">
           {title}

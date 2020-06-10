@@ -1,9 +1,9 @@
-.title{
+.title {
     text-align: center;
     padding-bottom: 10px;
 }
 
-.price{
+.price {
     text-align: center;
     padding-top: 10px;
 }
@@ -12,4 +12,27 @@
     padding: 10px;
     display: flex;
     justify-content: center;
+}
+
+.players {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 25%;
+    bottom: 25%;
+    left: 0;
+    right: 0;
+}
+
+.player {
+    margin: 5%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+.Card {
+    position: relative;
 }
