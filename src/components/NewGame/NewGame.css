@@ -1,0 +1,16 @@
+.NewGame {
+  padding-top: 100px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.playerIcon {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  border-radius: 50%;
+  height: 40px;
+  border: 3px solid;
+  margin: 1%;
+  box-shadow: 1px 1px 5px #888888;
+}

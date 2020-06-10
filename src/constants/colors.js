@@ -1,3 +1,5 @@
+import playerColors from "./playerColor";
+
 export default {
   BOARD_COLORS: {
     BROWN: "brown",
@@ -10,9 +12,9 @@ export default {
     BLUE: "blue",
   },
   PLAYER_COLORS: {
-    RED: "red",
-    YELLOW: "yellow",
-    GREEN: "green",
-    BLUE: "blue",
+    [playerColors.RED]: "red",
+    [playerColors.YELLOW]: "yellow",
+    [playerColors.GREEN]: "green",
+    [playerColors.BLUE]: "blue",
   }
 }
