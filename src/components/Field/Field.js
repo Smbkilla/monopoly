@@ -3,6 +3,7 @@ import React from "react";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
+import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
@@ -15,6 +16,7 @@ import Switch, {Case, Default} from "react-switch-case";
 
 import fieldType from "../../constants/fieldType";
 import playerIcons from "../../constants/playerIcon";
+import useGetFieldPlayers from "../../hooks/useGetFieldPlayers";
 
 import "./Field.css";
 
@@ -24,11 +26,15 @@ const iconStyle = {
   height: "60%",
 };
 
-export default function Field({type, players = [], ...props}) {
+export default function Field(props) {
+  const {property} = props;
+
+  const players = useGetFieldPlayers(property.NAME);
+
   return (
     <div className="Card">
       <Card>
-        <Switch condition={type}>
+        <Switch condition={property.TYPE}>
           <Case value={fieldType.PROPERTY}>
             <PropertyFieldContent {...props}/>
           </Case>
@@ -67,37 +73,46 @@ export default function Field({type, players = [], ...props}) {
   )
 }
 
-function PropertyFieldContent({title, price, color}) {
+function PropertyFieldContent({property}) {
   return (
     <React.Fragment>
-      <CardHeader style={{backgroundColor: color}}/>
+      <CardHeader style={{backgroundColor: property.COLOR}}/>
       <CardContent>
-        <Typography className="title" variant="button" component="h6">
-          {title}
-        </Typography>
-        <Typography className="price" variant="button" component="h6">
-          {price}
-        </Typography>
+        <Grid container direction="column" alignItems="center" justify="space-between">
+          <Grid item xs={3} container justify="center">
+            <Typography className="title" variant="button" component="h6">
+              {property.TITLE}
+            </Typography>
+          </Grid>
+          <Grid item xs={6} container justify="center">
+          </Grid>
+          <Grid item xs={3} container justify="center">
+            <Typography className="price" variant="button" component="h6">
+              {property.PRICE.PROPERTY}
+            </Typography>
+          </Grid>
+        </Grid>
       </CardContent>
     </React.Fragment>
   )
 };
 
-function IconFieldContent({icon, title, price}) {
+function IconFieldContent({property, icon}) {
   return (
-    <React.Fragment>
-      <CardHeader/>
-      <CardContent>
+    <Grid container direction="column" alignItems="center">
+      <Grid item xs={3} container justify="center">
         <Typography className="title" variant="button" component="h6">
-          {title}
+          {property.TITLE}
         </Typography>
-        <div className="icon">
-          {icon}
-        </div>
+      </Grid>
+      <Grid item xs={6} container justify="center">
+        {icon}
+      </Grid>
+      <Grid item xs={3} container justify="center">
         <Typography className="title" variant="button" component="h6">
-          {price}
+          {property.PRICE.PROPERTY}
         </Typography>
-      </CardContent>
-    </React.Fragment>
+      </Grid>
+    </Grid>
   )
 };
