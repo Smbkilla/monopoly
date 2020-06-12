@@ -8,15 +8,10 @@ import {
   Button
 } from "@material-ui/core";
 
-const FieldInfoDialog = ({ fieldInfo }) => {
-  const [open, setOpen] = useState(true);
+const FieldInfoDialog = ({ open, setOpen, fieldInfo }) => {
 
   const handleClose = () => {
     setOpen(false);
-  };
-
-  const handleOpen = () => {
-    setOpen(true);
   };
 
   return (
@@ -27,7 +22,7 @@ const FieldInfoDialog = ({ fieldInfo }) => {
         <DialogContentText>Price: </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose} color="primary">
+        <Button onClick={handleClose} color="primary" variant="contained">
           Ok
         </Button>
       </DialogActions>

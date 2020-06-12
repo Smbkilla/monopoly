@@ -8,20 +8,15 @@ import {
   Button
 } from "@material-ui/core";
 
-const JailDialog = ({ inside }) => {
-  const [open, setOpen] = useState(true);
-
+const JailDialog = ({ open, setOpen, inside }) => {
   const handleClose = () => {
     setOpen(false);
-  };
-
-  const handleOpen = () => {
-    setOpen(true);
   };
 
   const handlePayment = () => {
     // player has to pay certain amount of money to skip jail or get out of it
     // money goes to parking field ("bank")
+    handleClose();
   };
 
   return (
@@ -35,7 +30,7 @@ const JailDialog = ({ inside }) => {
         )}
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose} color="primary">
+        <Button onClick={handleClose} color="primary" variant="contained">
           OK
         </Button>
         <Button onClick={handlePayment} color="primary">

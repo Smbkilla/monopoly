@@ -8,16 +8,14 @@ import {
   Button
 } from "@material-ui/core";
 
-const BuyDialog = ({ fieldInfo }) => {
-  const [open, setOpen] = useState(true);
+const BuyDialog = ({ open, setOpen, fieldInfo }) => {
 
   const handleClose = () => {
     setOpen(false);
   };
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
+  // check if player is not owner so that he cannot buy house or hotel
+  // otherwise, if player is already an owner, he can buy house or hotel
 
   const buyField = () => {
       // money goes to parking field and player becomes an owner
@@ -33,7 +31,7 @@ const BuyDialog = ({ fieldInfo }) => {
         <DialogContentText>Hotel price: </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={buyField} color="primary">
+        <Button onClick={buyField} color="primary" variant="contained">
           Buy field
         </Button>
         <Button onClick={buyField} color="primary">

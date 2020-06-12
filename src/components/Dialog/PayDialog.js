@@ -8,19 +8,18 @@ import {
   Button
 } from "@material-ui/core";
 
-const PayDialog = ({ fieldInfo }) => {
-  const [open, setOpen] = useState(true);
+const PayDialog = ({ open, setOpen, fieldInfo }) => {
 
   const handleClose = () => {
     setOpen(false);
   };
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
+  // check if player is owner so that he cannot pay himself
+  // otherwise player has to pay
 
   const payField = () => {
       // money goes to owner of the field
+      // amount is calculated based on a number of houses/hotels
       handleClose()
   }
 
@@ -32,7 +31,7 @@ const PayDialog = ({ fieldInfo }) => {
         <DialogContentText>Price: </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={payField} color="primary">
+        <Button onClick={payField} color="primary" variant="contained">
           Pay
         </Button>
       </DialogActions>

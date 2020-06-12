@@ -8,15 +8,11 @@ import {
   Button
 } from "@material-ui/core";
 
-const ParkingDialog = ({ amount }) => {
-  const [open, setOpen] = useState(true);
+const ParkingDialog = ({ open, setOpen, amount }) => {
 
   const handleClose = () => {
     setOpen(false);
-  };
-
-  const handleOpen = () => {
-    setOpen(true);
+    // player recieves a certain amount of money
   };
 
   return (
@@ -26,7 +22,7 @@ const ParkingDialog = ({ amount }) => {
         <DialogContentText>{`You recieved ${amount} $`}</DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose} color="primary">
+        <Button onClick={handleClose} color="primary" variant="contained">
           OK
         </Button>
       </DialogActions>
