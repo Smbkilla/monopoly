@@ -16,27 +16,32 @@
 
 .players {
     display: flex;
+    align-content: start;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
     position: absolute;
-    top: 25%;
-    bottom: 25%;
+    top: 60%;
+    bottom: 20%;
     left: 0;
     right: 0;
 }
 
 .player {
-    display: flex;
-    align-content: center;
-    align-items: center;
     border-radius: 50%;
-    height: 45%;
-    border: 3px solid;
+    border: 2px solid;
     margin: 1%;
-    box-shadow: 1px 1px 5px #888888;
+    box-shadow: 1px 2px 4px #888888;
 }
 
 .Card {
     position: relative;
+}
+
+.cardActions {
+    justify-content: center;
+}
+
+.cardContent {
+    justify-content: center;
 }

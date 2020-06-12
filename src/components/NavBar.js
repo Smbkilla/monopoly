@@ -1,22 +1,25 @@
 import React, {useState} from 'react';
 import {useHistory} from "react-router-dom";
 
-import AppBar from "@material-ui/core/AppBar";
-import Divider from "@material-ui/core/Divider";
-import Drawer from "@material-ui/core/Drawer";
-import IconButton from "@material-ui/core/IconButton";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
+import {
+  AppBar,
+  Divider,
+  Drawer,
+  IconButton,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Toolbar,
+  Typography
+} from "@material-ui/core";
 import AddToQueueIcon from '@material-ui/icons/AddToQueue';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import HomeIcon from '@material-ui/icons/Home';
 import MenuIcon from '@material-ui/icons/Menu';
 import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
 
+import destination from "../constants/destination";
 import {ElevationScroll} from "./ElevationScroll"
 
 export default function NavBar(props) {
@@ -55,15 +58,15 @@ export default function NavBar(props) {
         </div>
         <Divider/>
         <List>
-          <ListItem button key="Home" onClick={onNavigationButtonClick("/home")}>
+          <ListItem button key="Home" onClick={onNavigationButtonClick(destination.HOME)}>
             <ListItemIcon><HomeIcon/></ListItemIcon>
             <ListItemText primary={"Home"}/>
           </ListItem>
-          <ListItem button key="New game" onClick={onNavigationButtonClick("/newGame")}>
+          <ListItem button key="New game" onClick={onNavigationButtonClick(destination.NEW_GAME)}>
             <ListItemIcon><AddToQueueIcon/></ListItemIcon>
             <ListItemText primary={"New game"}/>
           </ListItem>
-          <ListItem button key="Current game" onClick={onNavigationButtonClick("/currentGame")}>
+          <ListItem button key="Current game" onClick={onNavigationButtonClick(destination.CURRENT_GAME)}>
             <ListItemIcon><SportsEsportsIcon/></ListItemIcon>
             <ListItemText primary={"Current game"}/>
           </ListItem>
