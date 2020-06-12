@@ -13,13 +13,12 @@ import Divider from '@material-ui/core/Divider';
 import getPropertyMap from "../../hooks/getPropertyMap";
 import Switch, {Case, Default} from "react-switch-case";
 
-import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
-import LocalParkingIcon from '@material-ui/icons/LocalParking';
-import LockIcon from '@material-ui/icons/Lock';
-import NotListedLocationIcon from "@material-ui/icons/NotListedLocation";
-import RedeemIcon from "@material-ui/icons/Redeem";
+import TelegramIcon from '@material-ui/icons/Telegram';
+import MotorcycleIcon  from '@material-ui/icons/Motorcycle';
+import DriveEtaIcona from '@material-ui/icons/DriveEta';
+import LocalBarIcon from '@material-ui/icons/LocalBar';
+import WifiIcon from '@material-ui/icons/Wifi';
 import TrainIcon from '@material-ui/icons/Train';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 import "./PlayerData.css";
 
@@ -91,22 +90,22 @@ const PlayerData = () => {
                                                 <CardContent style={{display: 'flex', alignItems: 'center', justifyContent: 'center', height: '8px', padding: '8px'}}>
                                                     <Switch condition={property.TYPE}>
                                                         <Case value={fieldType.SCOOTER}>
-                                                            {/* <NotListedLocationIcon/> */}
+                                                            <MotorcycleIcon/>
                                                         </Case>
                                                         <Case value={fieldType.CAR}>
-                                                            {/* <RedeemIcon/> */}
+                                                            <DriveEtaIcona/>
                                                         </Case>
                                                         <Case value={fieldType.ROCKET}>
-                                                            {/* <LocalParkingIcon/> */}
+                                                            <TelegramIcon/>
                                                         </Case>
                                                         <Case value={fieldType.TRAIN}>
                                                             <TrainIcon/>
                                                         </Case>
                                                         <Case value={fieldType.WIFI}>
-                                                            {/* <LocalParkingIcon/> */}
+                                                            <WifiIcon/>
                                                         </Case>
                                                         <Case value={fieldType.WINE}>
-                                                            {/* <LocalParkingIcon/> */}
+                                                            <LocalBarIcon/>
                                                         </Case>
                                                         <Case value={fieldType.RING}>
                                                             {/* <LocalParkingIcon/> */}
