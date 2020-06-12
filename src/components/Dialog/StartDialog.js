@@ -8,15 +8,10 @@ import {
   Button
 } from "@material-ui/core";
 
-const StartDialog = () => {
-  const [open, setOpen] = useState(true);
-
+const StartDialog = ({ open, setOpen }) => {
   const handleClose = () => {
     setOpen(false);
-  };
-
-  const handleOpen = () => {
-    setOpen(true);
+    // add money to player
   };
 
   return (
@@ -26,7 +21,7 @@ const StartDialog = () => {
         <DialogContentText>You passed the START field</DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose} color="primary">
+        <Button onClick={handleClose} color="primary" variant="contained">
           OK
         </Button>
       </DialogActions>

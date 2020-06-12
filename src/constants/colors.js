@@ -10,6 +10,7 @@ export default {
     YELLOW: "yellow",
     GREEN: "green",
     BLUE: "blue",
+    WHITE: "white"
   },
   PLAYER_COLORS: {
     [playerColors.RED]: "red",

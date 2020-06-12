@@ -1,8 +1,9 @@
 export default {
-  CHANCE: "chance",
-  COMMUNITY_CHEST: "communityChest",
+  FORTUNE_COOKIE: "fortuneCookie",
+  ROOMATE_AGREEMENT: "roomateAgreement",
   PROPERTY: "property",
-  CHOO_CHOO: "chooChoo",
+  VEHICLE: "vehicle",
+  ITEM: "item",
   JAIL: "jail",
   START: "start",
   GO_TO_JAIL: "goToJail",
