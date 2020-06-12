@@ -3,15 +3,17 @@ import playerNames from "../constants/playerName";
 import playerColors from "../constants/playerColor";
 
 export const getNewGamePlayers = (players = []) => {
-  return players.map(player => ({
+  return players.map((player, index) => ({
     ...player,
+    index,
     cash: 20000000,
     properties: [],
-  }))
+  }));
 };
 
 export const getNewGame = () => ({
   players: [],
+  parkingSpaceReward: 0,
   fields: {
     [properties.AMY_APARTMENT.NAME]: {
       players: [
