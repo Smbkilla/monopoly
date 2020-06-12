@@ -90,26 +90,26 @@ const PlayerData = () => {
                                                 {property.TYPE == fieldType.PROPERTY ? <CardHeader style={{backgroundColor: property.COLOR, padding: '10px'}}/> : <CardHeader style={{padding: '10px'}}/>}
                                                 <CardContent style={{display: 'flex', alignItems: 'center', justifyContent: 'center', height: '8px', padding: '8px'}}>
                                                     <Switch condition={property.TYPE}>
-                                                        <Case value={fieldType.CHANCE}>
-                                                            <NotListedLocationIcon/>
+                                                        <Case value={fieldType.SCOOTER}>
+                                                            {/* <NotListedLocationIcon/> */}
                                                         </Case>
-                                                        <Case value={fieldType.COMMUNITY_CHEST}>
-                                                            <RedeemIcon/>
+                                                        <Case value={fieldType.CAR}>
+                                                            {/* <RedeemIcon/> */}
                                                         </Case>
-                                                        <Case value={fieldType.START}>
-                                                            <KeyboardArrowRightIcon/>
+                                                        <Case value={fieldType.ROCKET}>
+                                                            {/* <LocalParkingIcon/> */}
                                                         </Case>
-                                                        <Case value={fieldType.JAIL}>
-                                                            <LockIcon/>
-                                                        </Case>
-                                                        <Case value={fieldType.GO_TO_JAIL}>
-                                                            <ExitToAppIcon/>
-                                                        </Case>
-                                                        <Case value={fieldType.CHILL}>
-                                                            <LocalParkingIcon/>
-                                                        </Case>
-                                                        <Case value={fieldType.CHOO_CHOO}>
+                                                        <Case value={fieldType.TRAIN}>
                                                             <TrainIcon/>
+                                                        </Case>
+                                                        <Case value={fieldType.WIFI}>
+                                                            {/* <LocalParkingIcon/> */}
+                                                        </Case>
+                                                        <Case value={fieldType.WINE}>
+                                                            {/* <LocalParkingIcon/> */}
+                                                        </Case>
+                                                        <Case value={fieldType.RING}>
+                                                            {/* <LocalParkingIcon/> */}
                                                         </Case>
                                                     </Switch>
                                                 </CardContent>
