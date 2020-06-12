@@ -216,52 +216,205 @@ export default {
     COLOR: colors.BOARD_COLORS.WHITE,
     INDEX: 20,
   },
-// ----------------------------------------
-//   AMY_APARTMENT: {
-//     TITLE: "Amy's apartment",
-//     NAME: "amyApartment",
-//     TYPE: fieldTypes.PROPERTY,
-//     COLOR: colors.BOARD_COLORS.GREEN,
-//     INDEX: 0,
-//     PRICE: {
-//       PROPERTY: 200,
-//       HOUSE: 20,
-//       HOTEL: 40,
-//     },
-//   },
-//   RAJ_APARTMENT: {
-//     TITLE: "Raj's apartment",
-//     NAME: "rajApartment",
-//     TYPE: fieldTypes.PROPERTY,
-//     COLOR: colors.BOARD_COLORS.GREEN,
-//     INDEX: 1,
-//     PRICE: {
-//       PROPERTY: 200,
-//       HOUSE: 20,
-//       HOTEL: 40,
-//     },
-//   },
-//   HOWARD_SCOOTER: {
-//     TITLE: "Howard's scooter",
-//     NAME: "howardScooter",
-//     TYPE: fieldTypes.VEHICLE,
-//     INDEX: 2,
-//     PRICE: {
-//       PROPERTY: 200,
-//       HOUSE: 20,
-//       HOTEL: 40,
-//     },
-//   },
-//   HOWARD_AND_BERNADETTE_APARTMENT: {
-//     TITLE: "Howard and Bernadette's apartment",
-//     NAME: "howardAndBernadetteApartment",
-//     TYPE: fieldTypes.PROPERTY,
-//     COLOR: colors.BOARD_COLORS.GREEN,
-//     INDEX: 3,
-//     PRICE: {
-//       PROPERTY: 200,
-//       HOUSE: 20,
-//       HOTEL: 40,
-//     },
-//   },
+  SHELDON_OFFICE: {
+    TITLE: "Sheldon's office",
+    NAME: "sheldonsOffice",
+    TYPE: fieldTypes.PROPERTY,
+    COLOR: colors.BOARD_COLORS.RED,
+    INDEX: 21,
+    PRICE: {
+      PROPERTY: 220,
+      HOUSE: 20,
+      HOTEL: 50
+    }
+  },
+  FORTUNE_COOKIE_2: {
+    TITLE: "Fortune cookie",
+    NAME: "fortuneCookie2",
+    TYPE: fieldTypes.FORTUNE_COOKIE,
+    COLOR: colors.BOARD_COLORS.WHITE,
+    INDEX: 22,
+  },
+  HOWARD_LAB: {
+    TITLE: "Howard's lab",
+    NAME: "howardsLab",
+    TYPE: fieldTypes.PROPERTY,
+    COLOR: colors.BOARD_COLORS.RED,
+    INDEX: 23,
+    PRICE: {
+      PROPERTY: 220,
+      HOUSE: 20,
+      HOTEL: 50
+    }
+  },
+  LEONARD_LAB: {
+    TITLE: "Leonard's lab",
+    NAME: "leonardsLab",
+    TYPE: fieldTypes.PROPERTY,
+    COLOR: colors.BOARD_COLORS.RED,
+    INDEX: 24,
+    PRICE: {
+      PROPERTY: 240,
+      HOUSE: 20,
+      HOTEL: 50
+    }
+  },
+  LEONARD_CAR: {
+    TITLE: "Leonard's car",
+    NAME: "leonardsCar",
+    TYPE: fieldTypes.CAR,
+    COLOR: colors.BOARD_COLORS.WHITE,
+    INDEX: 25,
+    PRICE: {
+      PROPERTY: 200
+    }
+  },
+  RAJ_OFFICE: {
+    TITLE: "Raj's office",
+    NAME: "rajsOffice",
+    TYPE: fieldTypes.PROPERTY,
+    COLOR: colors.BOARD_COLORS.YELLOW,
+    INDEX: 26,
+    PRICE: {
+      PROPERTY: 260,
+      HOUSE: 20,
+      HOTEL: 50
+    }
+  },
+  SHELDON_PARKING_SPACE: {
+    TITLE: "Sheldon's parking space",
+    NAME: "sheldonsParkingSpace",
+    TYPE: fieldTypes.PROPERTY,
+    COLOR: colors.BOARD_COLORS.YELLOW,
+    INDEX: 27,
+    PRICE: {
+      PROPERTY: 260,
+      HOUSE: 20,
+      HOTEL: 50
+    }
+  },
+  PENNY_WINE: {
+    TITLE: "Penny's wine",
+    NAME: "pennysWine",
+    TYPE: fieldTypes.WINE,
+    COLOR: colors.BOARD_COLORS.WHITE,
+    INDEX: 28,
+    PRICE: {
+      PROPERTY: 150
+    }
+  },
+  PHYSICS_DEPARTMENT_CAFETERIA: {
+    TITLE: "Physics department cafeteria",
+    NAME: "physicsDepartmentCafeteria",
+    TYPE: fieldTypes.PROPERTY,
+    COLOR: colors.BOARD_COLORS.YELLOW,
+    INDEX: 29,
+    PRICE: {
+      PROPERTY: 280,
+      HOUSE: 20,
+      HOTEL: 50
+    }
+  },
+  GO_TO_JAIL: {
+    TITLE: "Go to jail",
+    NAME: "goToJail",
+    TYPE: fieldTypes.GO_TO_JAIL,
+    COLOR: colors.BOARD_COLORS.WHITE,
+    INDEX: 30,
+  },
+  AMY_APARTMENT: {
+    TITLE: "Amy's apartment",
+    NAME: "amyApartment",
+    TYPE: fieldTypes.PROPERTY,
+    COLOR: colors.BOARD_COLORS.GREEN,
+    INDEX: 31,
+    PRICE: {
+      PROPERTY: 300,
+      HOUSE: 20,
+      HOTEL: 40,
+    },
+  },
+  RAJ_APARTMENT: {
+    TITLE: "Raj's apartment",
+    NAME: "rajApartment",
+    TYPE: fieldTypes.PROPERTY,
+    COLOR: colors.BOARD_COLORS.GREEN,
+    INDEX: 32,
+    PRICE: {
+      PROPERTY: 300,
+      HOUSE: 20,
+      HOTEL: 40,
+    },
+  },
+  ROOMATE_AGREEMENT_3: {
+    TITLE: "Roomate agreement",
+    NAME: "roomateAgreement3",
+    TYPE: fieldTypes.ROOMATE_AGREEMENT,
+    COLOR: colors.BOARD_COLORS.WHITE,
+    INDEX: 33,
+  },
+  HOWARD_AND_BERNADETTE_APARTMENT: {
+    TITLE: "Howard and Bernadette's apartment",
+    NAME: "howardAndBernadetteApartment",
+    TYPE: fieldTypes.PROPERTY,
+    COLOR: colors.BOARD_COLORS.GREEN,
+    INDEX: 34,
+    PRICE: {
+      PROPERTY: 320,
+      HOUSE: 20,
+      HOTEL: 40,
+    },
+  },
+  HOWARD_SCOOTER: {
+    TITLE: "Howard's scooter",
+    NAME: "howardScooter",
+    TYPE: fieldTypes.VEHICLE,
+    INDEX: 35,
+    PRICE: {
+      PROPERTY: 200,
+      HOUSE: 20,
+      HOTEL: 40,
+    },
+  },
+  FORTUNE_COOKIE_3: {
+    TITLE: "Fortune cookie",
+    NAME: "fortuneCookie3",
+    TYPE: fieldTypes.FORTUNE_COOKIE,
+    COLOR: colors.BOARD_COLORS.WHITE,
+    INDEX: 36,
+  },
+  PENNY_APARMENT: {
+    TITLE: "Penny's apartment",
+    NAME: "pennysApartment",
+    TYPE: fieldTypes.PROPERTY,
+    COLOR: colors.BOARD_COLORS.BLUE,
+    INDEX: 37,
+    PRICE: {
+      PROPERTY: 350,
+      HOUSE: 20,
+      HOTEL: 40,
+    },
+  },
+  BERNAETTE_RING: {
+    TITLE: "Bernadette's engagement ring",
+    NAME: "bernadettesEngagementRing",
+    TYPE: fieldTypes.RING,
+    COLOR: colors.BOARD_COLORS.WHITE,
+    INDEX: 38,
+    PRICE: {
+      PROPERTY: 100
+    }
+  },
+  SHELDON_AND_LEONARD_APARTMENT: {
+    TITLE: "Sheldon and Leonard's apartment",
+    NAME: "sheldonAndLeonardsApartment",
+    TYPE: fieldTypes.PROPERTY,
+    COLOR: colors.BOARD_COLORS.BLUE,
+    INDEX: 39,
+    PRICE: {
+      PROPERTY: 400,
+      HOUSE: 20,
+      HOTEL: 40,
+    },
+  },
 }
