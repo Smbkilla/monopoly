@@ -6,605 +6,155 @@ import Field from "../Field/Field";
 import colors from "../../constants/colors";
 import fieldTypes from "../../constants/fieldType";
 import Dice from "../Dice/Dice";
+import playerNames from "../../constants/playerName";
+import properties from "../../constants/properties";
+import PlayerData from "../PlayerData/PlayerData";
 
-const player = name => ({
+const player = (name, color) => ({
   name,
-  icon: <AccountCircleIcon color="inherit" />,
-  color: colors.PLAYER_COLORS.RED
+  icon: <AccountCircleIcon color="inherit"/>,
+  color,
 });
 
 const Board = () => {
   return (
-    <Grid container direction="column" style={{marginTop: 70}}>
-      
-      {/* prvi redak */}
-      <Grid container direction="row" justify="space-around" alignContent="center" style={{marginTop: 30, marginBottom: 30}}>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
+    <Grid container direction="row" justify="space-around" alignContent="center">
+      <Grid item xs={10}>
+        <Grid container direction="column" style={{marginTop: 70}} justify="space-around">
+          {/* prvi redak */}
+          <Grid container direction="row" justify="space-around" alignContent="center">
+            <Grid item xs={1}>
+              <Field property={properties.AMY_APARTMENT}/>
+            </Grid>
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            <Grid item xs={1}>
+              <Field property={properties.HOWARD_SCOOTER}/>
+            </Grid>
+            <Grid item xs={1}>
+              <Field property={properties.HOWARD_AND_BERNADETTE_APARTMENT}/>
+            </Grid>
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            {/* <Grid item xs={2}>
+              <Dice/>
+            </Grid> */}
+          </Grid>
+
+          {/* drugi redak */}
+
+          <Grid container direction="row" justify="space-around" alignContent="center">
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            {/* <Grid item xs={2}>
+              <Dice/>
+            </Grid> */}
+          </Grid>
+
+          {/* treci redak */}
+
+          <Grid container direction="row" justify="space-around" alignContent="center">
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            {/* <Grid item xs={2}>
+              <Dice/>
+            </Grid> */}
+          </Grid>
+
+          {/* cetvrti redak */}
+
+          <Grid container direction="row" justify="space-around" alignContent="center">
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            <Grid item xs={1}>
+              <Field property={properties.RAJ_APARTMENT}/>
+            </Grid>
+            {/* <Grid item xs={2}>
+              <Dice/>
+            </Grid> */}
+          </Grid>
         </Grid>
       </Grid>
-
-      {/* drugi redak */}
-
-      <Grid container direction="row" justify="space-around" alignContent="center" style={{marginTop: 30, marginBottom: 30}}>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
+      <Grid item xs={2}>
+        <Grid container direction="column" style={{marginTop: 70}} justify="space-around">
+          <Dice />
+          <PlayerData />
         </Grid>
       </Grid>
-
-      {/* treci redak */}
-
-      <Grid container direction="row" justify="space-around" alignContent="center" style={{marginTop: 30, marginBottom: 30}}>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-      </Grid>
-
-      {/* cetvrti redak */}
-
-      <Grid container direction="row" justify="space-around" alignContent="center" style={{marginTop: 30, marginBottom: 30}}>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-      </Grid>
-
-      {/* peti redak */}
-
-      <Grid container direction="row" justify="space-around" alignContent="center" style={{marginTop: 30, marginBottom: 30}}>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-        <Grid item xs={1}>
-          <Field
-            color={colors.BOARD_COLORS.GREEN}
-            type={fieldTypes.PROPERTY}
-            title="ULICA OVA I ONA"
-            price="200K"
-            players={[
-              player("Player1", colors.PLAYER_COLORS.BLUE),
-              player("Player2", colors.PLAYER_COLORS.BLUE),
-              player("Player3", colors.PLAYER_COLORS.BLUE),
-              player("Player4", colors.PLAYER_COLORS.BLUE)
-            ]}
-          />
-        </Grid>
-      </Grid>
-      
-      <Grid container direction="row" justify="space-around" alignContent="center" style={{marginTop: 30, marginBottom: 20}}>
-        <Dice/>
-      </Grid>
-
     </Grid>
   );
 };
