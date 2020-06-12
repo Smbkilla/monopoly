@@ -49,10 +49,10 @@ export default function Field(props) {
         <Case value={fieldType.PROPERTY}>
           <PropertyFieldContent {...props}/>
         </Case>
-        <Case value={fieldType.CHANCE}>
+        <Case value={fieldType.FORTUNE_COOKIE}>
           <IconFieldContent {...props} icon={<NotListedLocationIcon style={iconStyle}/>}/>
         </Case>
-        <Case value={fieldType.COMMUNITY_CHEST}>
+        <Case value={fieldType.ROOMATE_AGREEMENT}>
           <IconFieldContent {...props} icon={<RedeemIcon style={iconStyle}/>}/>
         </Case>
         <Case value={fieldType.START}>
@@ -119,7 +119,7 @@ function IconFieldContent({property, icon}) {
       </CardContent>
       <CardActions className="cardActions">
         <Typography className="title" variant="button" component="h6">
-          {property.PRICE.PROPERTY}
+          {property.PRICE ? property.PRICE.PROPERTY : ""}
         </Typography>
       </CardActions>
     </React.Fragment>
