@@ -21,9 +21,9 @@ export default {
       HOTEL: 40,
     },
   },
-  ROOMATE_AGREEMENT: {
+  ROOMATE_AGREEMENT_1: {
     TITLE: "Roomate agreement",
-    NAME: "roomateAgreement",
+    NAME: "roomateAgreement1",
     TYPE: fieldTypes.ROOMATE_AGREEMENT,
     COLOR: colors.BOARD_COLORS.WHITE,
     INDEX: 2,
@@ -43,7 +43,7 @@ export default {
   NEW_COMIC_BOOK_DAY: {
     TITLE: "New comic book day",
     NAME: "newComicBookDay",
-    TYPE: fieldTypes.ITEM,
+    TYPE: fieldTypes.BOOK,
     COLOR: colors.BOARD_COLORS.WHITE,
     INDEX: 4,
     PRICE: {
@@ -53,7 +53,7 @@ export default {
   TOY_TRAIN_SET: {
     TITLE: "Toy train set",
     NAME: "toyTrainSet",
-    TYPE: fieldTypes.VEHICLE,
+    TYPE: fieldTypes.TRAIN,
     COLOR: colors.BOARD_COLORS.WHITE,
     INDEX: 5,
     PRICE: {
@@ -72,9 +72,9 @@ export default {
       HOTEL: 50
     }
   },
-  FORTUNE_COOKIE: {
+  FORTUNE_COOKIE_1: {
     TITLE: "Fortune cookie",
-    NAME: "fortuneCookie",
+    NAME: "fortuneCookie1",
     TYPE: fieldTypes.FORTUNE_COOKIE,
     COLOR: colors.BOARD_COLORS.WHITE,
     INDEX: 7,
@@ -125,7 +125,7 @@ export default {
   SHELDON_WIFI: {
     TITLE: "Sheldon's WIFI",
     NAME: "sheldonsWifi",
-    TYPE: fieldTypes.ITEM,
+    TYPE: fieldTypes.WIFI,
     COLOR: colors.BOARD_COLORS.WHITE,
     INDEX: 12,
     PRICE: {
@@ -159,7 +159,7 @@ export default {
   SOYUZ_ROCKET: {
     TITLE: "Soyuz rocket",
     NAME: "soyuzRocket",
-    TYPE: fieldTypes.VEHICLE,
+    TYPE: fieldTypes.ROCKET,
     COLOR: colors.BOARD_COLORS.WHITE,
     INDEX: 15,
     PRICE: {
@@ -178,9 +178,9 @@ export default {
       HOTEL: 50
     }
   },
-  ROOMATE_AGREEMENT: {
+  ROOMATE_AGREEMENT_2: {
     TITLE: "Roomate agreement",
-    NAME: "roomateAgreement",
+    NAME: "roomateAgreement2",
     TYPE: fieldTypes.ROOMATE_AGREEMENT,
     COLOR: colors.BOARD_COLORS.WHITE,
     INDEX: 17,
@@ -264,4 +264,4 @@ export default {
 //       HOTEL: 40,
 //     },
 //   },
-// }
+}
