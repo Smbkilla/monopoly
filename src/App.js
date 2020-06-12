@@ -9,12 +9,10 @@ import Board from "./components/Board/Board";
 import Home from "./components/Home/Home";
 import NavBar from "./components/NavBar";
 import NewGame from "./components/NewGame/NewGame";
+import destinations from "./constants/destination";
+import {getNewGame} from "./util/gameUtil";
 
 import "./App.css";
-
-const newGame = () => ({
-  players: [],
-});
 
 const theme = createMuiTheme({
   palette: {
@@ -29,7 +27,7 @@ const theme = createMuiTheme({
 export const GameContext = createContext(null);
 
 function App() {
-  const [game, setGame] = useState(newGame());
+  const [game, setGame] = useState(getNewGame());
 
   return (
     <div className="App">
@@ -37,9 +35,9 @@ function App() {
         <GameContext.Provider value={{game, setGame}}>
           <BrowserRouter>
             <NavBar/>
-            <Route path='/home' component={Home}/>
-            <Route path='/newGame' component={NewGame}/>
-            <Route path='/currentGame' component={Board}/>
+            <Route exact path={destinations.HOME} component={Home}/>
+            <Route path={destinations.NEW_GAME} component={NewGame}/>
+            <Route path={destinations.CURRENT_GAME} component={Board}/>
           </BrowserRouter>
         </GameContext.Provider>
       </ThemeProvider>
