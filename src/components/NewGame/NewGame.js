@@ -82,7 +82,7 @@ export default function NewGame() {
         ...game.fields,
         [properties.START.NAME]: {
           ...game.fields[properties.START.NAME],
-          players: players.map(p => p.index),
+          players: getNewGamePlayers(players).map(p => p.index),
         }
       },
       players: getNewGamePlayers(players),
