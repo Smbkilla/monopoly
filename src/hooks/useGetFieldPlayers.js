@@ -1,14 +1,14 @@
 import React, {useContext} from "react";
 
-import _ from "lodash";
-
 import {GameContext} from "../App";
 
 function useGetFieldPlayers(name) {
   const {game} = useContext(GameContext);
-  const {fields} = game;
+  const {fields, players} = game;
 
-  return _.get(fields, `${name}.players`, []);
+  const playerIndexes = fields[name].players;
+
+  return playerIndexes.map(playerIndex => players.find(player => player.index === playerIndex));
 }
 
 export default useGetFieldPlayers;

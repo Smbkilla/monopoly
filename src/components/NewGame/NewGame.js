@@ -25,6 +25,8 @@ import playerNames from "../../constants/playerName";
 
 import "./NewGame.css"
 import {getNewGamePlayers} from "../../util/gameUtil";
+import destination from "../../constants/destination";
+import properties from "../../constants/properties";
 
 const player = () => ({
   name: "",
@@ -76,10 +78,17 @@ export default function NewGame() {
 
     setGame({
       ...game,
+      fields: {
+        ...game.fields,
+        [properties.START.NAME]: {
+          ...game.fields[properties.START.NAME],
+          players: players.map(p => p.index),
+        }
+      },
       players: getNewGamePlayers(players),
     });
 
-    history.push("/currentGame");
+    history.push(destination.CURRENT_GAME);
   };
 
   return (

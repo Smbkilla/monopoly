@@ -18,7 +18,7 @@ export const getNewGame = () => ({
   parkingSpaceReward: 0,
   fields: {
     [properties.START.NAME]: {
-      players: [0],
+      players: [0, 1],
       numberOfHouses: 0,
       numberOfHotels: 0,
       owner: null,

@@ -1,11 +1,10 @@
-import React, {useContext} from "react";
+import React from "react";
 import Grid from "@material-ui/core/Grid";
 
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import Dice from "../Dice/Dice";
 import Field from "../Field/Field";
 import properties from "../../constants/properties";
-import {GameContext} from "../../App";
 
 const player = (name, color) => ({
   name,
@@ -14,7 +13,6 @@ const player = (name, color) => ({
 });
 
 const Board = () => {
-  console.log(useContext(GameContext));
   return (
     <Grid container direction="column" style={{marginTop: 70}}>
 
