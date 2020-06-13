@@ -12,6 +12,7 @@ import fieldType from "../../constants/fieldType";
 import Divider from '@material-ui/core/Divider';
 import getPropertyMap from "../../hooks/getPropertyMap";
 import Switch, {Case, Default} from "react-switch-case";
+import Tooltip from '@material-ui/core/Tooltip';
 
 import TelegramIcon from '@material-ui/icons/Telegram';
 import MotorcycleIcon  from '@material-ui/icons/Motorcycle';
@@ -21,32 +22,13 @@ import WifiIcon from '@material-ui/icons/Wifi';
 import TrainIcon from '@material-ui/icons/Train';
 
 import "./PlayerData.css";
-
-const player = {
-    name: playerName.LEONARD,
-    color: playerColor.BLUE,
-    cash: 20000000,
-    properties: [
-        properties.AMY_APARTMENT, 
-        properties.HOWARD_SCOOTER, 
-        properties.RAJ_APARTMENT,
-        properties.RAJ_APARTMENT,
-        properties.RAJ_APARTMENT,
-        properties.RAJ_APARTMENT, 
-        properties.RAJ_APARTMENT,
-        properties.RAJ_APARTMENT,
-        properties.RAJ_APARTMENT,
-        properties.RAJ_APARTMENT, 
-        properties.RAJ_APARTMENT,
-        properties.RAJ_APARTMENT,
-        properties.RAJ_APARTMENT,
-        properties.RAJ_APARTMENT
-    ]
-};
-
-const props = getPropertyMap(player.properties);
+import useGetCurrentPlayer from "../../hooks/useGetCurrentPlayer";
 
 const PlayerData = () => {
+    const player = useGetCurrentPlayer();
+
+    const props = getPropertyMap(player.properties);
+
     return (
         <div className="Card" style={{margin: '20px'}}>
             <Card>
@@ -56,10 +38,23 @@ const PlayerData = () => {
                 }
                 title={
                     <Typography className="player-name" variant="button" component="h5">
-                        {player.name}
+                        {/* {player.name} */}
+                        current player
                     </Typography>}/>
                 <CardContent>
                     <Grid container direction="column" alignItems="center">
+                        <Grid item container direction="row" justify="center" alignItems="center">
+                            <Grid item>
+                                <Typography className="property" variant="body1" component="h6">
+                                    NAME
+                                </Typography>
+                            </Grid>
+                            <Grid item>
+                                <Typography className="value" variant="overline" component="h6" style={{marginLeft: '10px'}}>
+                                    {player.name}
+                                </Typography>
+                            </Grid>
+                        </Grid>
                         <Grid item container direction="row" justify="center" alignItems="center">
                             <Grid item>
                                 <Typography className="property" variant="body1" component="h6">
@@ -85,34 +80,36 @@ const PlayerData = () => {
                                 {props.map((property) => {  
                                     return (
                                         <Grid item xs={3}>
-                                            <Card style={{margin: '5px'}}>
-                                                {property.TYPE == fieldType.PROPERTY ? <CardHeader style={{backgroundColor: property.COLOR, padding: '10px'}}/> : <CardHeader style={{padding: '10px'}}/>}
-                                                <CardContent style={{display: 'flex', alignItems: 'center', justifyContent: 'center', height: '8px', padding: '8px'}}>
-                                                    <Switch condition={property.TYPE}>
-                                                        <Case value={fieldType.SCOOTER}>
-                                                            <MotorcycleIcon/>
-                                                        </Case>
-                                                        <Case value={fieldType.CAR}>
-                                                            <DriveEtaIcona/>
-                                                        </Case>
-                                                        <Case value={fieldType.ROCKET}>
-                                                            <TelegramIcon/>
-                                                        </Case>
-                                                        <Case value={fieldType.TRAIN}>
-                                                            <TrainIcon/>
-                                                        </Case>
-                                                        <Case value={fieldType.WIFI}>
-                                                            <WifiIcon/>
-                                                        </Case>
-                                                        <Case value={fieldType.WINE}>
-                                                            <LocalBarIcon/>
-                                                        </Case>
-                                                        <Case value={fieldType.RING}>
-                                                            {/* <LocalParkingIcon/> */}
-                                                        </Case>
-                                                    </Switch>
-                                                </CardContent>
-                                            </Card>
+                                            <Tooltip title={property.TITLE} placement='top'>
+                                                <Card style={{margin: '5px'}}>
+                                                    {property.TYPE == fieldType.PROPERTY ? <CardHeader style={{backgroundColor: property.COLOR, padding: '10px'}}/> : <CardHeader style={{padding: '10px'}}/>}
+                                                    <CardContent style={{display: 'flex', alignItems: 'center', justifyContent: 'center', height: '8px', padding: '8px'}}>
+                                                        <Switch condition={property.TYPE}>
+                                                            <Case value={fieldType.SCOOTER}>
+                                                                <MotorcycleIcon/>
+                                                            </Case>
+                                                            <Case value={fieldType.CAR}>
+                                                                <DriveEtaIcona/>
+                                                            </Case>
+                                                            <Case value={fieldType.ROCKET}>
+                                                                <TelegramIcon/>
+                                                            </Case>
+                                                            <Case value={fieldType.TRAIN}>
+                                                                <TrainIcon/>
+                                                            </Case>
+                                                            <Case value={fieldType.WIFI}>
+                                                                <WifiIcon/>
+                                                            </Case>
+                                                            <Case value={fieldType.WINE}>
+                                                                <LocalBarIcon/>
+                                                            </Case>
+                                                            <Case value={fieldType.RING}>
+                                                                {/* <LocalParkingIcon/> */}
+                                                            </Case>
+                                                        </Switch>
+                                                    </CardContent>
+                                                </Card>
+                                            </Tooltip>
                                         </Grid>
                                     ) 
                                 })}

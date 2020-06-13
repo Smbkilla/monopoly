@@ -98,7 +98,7 @@ export default function Field(props) {
           <IconFieldContent {...props} icon={<MenuBookIcon style={iconStyle}/>}/>
         </Case>
         <Default>
-          {console.log(props)}
+          null
         </Default>
       </Switch>
       <div className="players">
