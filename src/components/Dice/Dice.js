@@ -1,67 +1,81 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 
 import {Button, Grid} from "@material-ui/core";
+import Switch, {Case, Default} from "react-switch-case";
 
 import {GameContext} from "../../App";
-import gameConstants from "../../constants/game";
-import useGetCurrentPlayer from "../../hooks/useGetCurrentPlayer";
-import useGetCurrentPlayerFieldName from "../../hooks/useGetCurrentPlayerFieldName";
-import {getPropertyByIndex, getPropertyByName} from "../../util/propertyUtil";
-
-import dice from "../../images/diceWhite.png";
-import {addPlayerFunds} from "../../util/playerUtil";
+import {DiceOneIcon, DiceTwoIcon, DiceThreeIcon, DiceFourIcon, DiceFiveIcon, DiceSixIcon} from "../Icon/diceIcon";
+import {movePlayerToNewField} from "../../util/playerUtil";
 
 function Dice() {
-  const context = useContext(GameContext);
-  const currentPlayer = useGetCurrentPlayer();
-  const playerFieldName = useGetCurrentPlayerFieldName();
+  const [numbers, setNumbers] = useState([6, 6]);
+  const {game, setGame} = useContext(GameContext);
 
   const getRandomInt = max => {
     return Math.floor(Math.random() * Math.floor(max));
   };
 
   const throwDice = () => {
-    const {game, setGame} = context;
-    const playerField = game.fields[playerFieldName];
     const firstNumber = getRandomInt(5) + 1;
     const secondNumber = getRandomInt(5) + 1;
-    const diceSum = firstNumber + secondNumber;
 
-    const newFieldIndex = getPropertyByName(playerFieldName).INDEX + diceSum;
-    const diff = newFieldIndex - 39;
-    const passedStart = diff >= 0;
+    setNumbers([firstNumber, secondNumber]);
 
-    const newPlayerFieldIndex = passedStart ? diff : newFieldIndex;
-    const fieldProperty = getPropertyByIndex(newPlayerFieldIndex);
-
-    const newPlayerField = game.fields[fieldProperty.NAME];
-
-    const newCurrentPlayer = game.currentPlayer + 1;
-    const currentPlayerDiff = newCurrentPlayer - game.players.length;
-
-    setGame({
-      ...game,
-      currentPlayer: currentPlayerDiff >= 0 ? currentPlayerDiff : newCurrentPlayer,
-      fields: {
-        ...game.fields,
-        [playerFieldName]: {
-          ...playerField,
-          players: playerField.players.filter(playerIndex => playerIndex !== currentPlayer.index),
-        },
-        [fieldProperty.NAME]: {
-          ...newPlayerField,
-          players: [...newPlayerField.players, currentPlayer.index],
-        }
-      },
-      players: passedStart ? addPlayerFunds(game, game.currentPlayer, gameConstants.START_BONUS).players : game.players
-    });
+    setGame(movePlayerToNewField(firstNumber + secondNumber, game));
   };
 
   return (
     <Grid container direction="column" justify="center" alignContent="center">
-      <Grid container direction="row" justify="center" alignContent="center">
+      <Grid container direction="row" justify="center" alignContent="center" spacing={1}>
         <Grid item xs={5}>
-          <img src={dice} height={120} width={120}/>
+          <Switch condition={numbers[0]}>
+            <Case value={1}>
+              <DiceOneIcon/>
+            </Case>
+            <Case value={2}>
+              <DiceTwoIcon/>
+            </Case>
+            <Case value={3}>
+              <DiceThreeIcon/>
+            </Case>
+            <Case value={4}>
+              <DiceFourIcon/>
+            </Case>
+            <Case value={5}>
+              <DiceFiveIcon/>
+            </Case>
+            <Case value={6}>
+              <DiceSixIcon/>
+            </Case>
+            <Default>
+              null
+            </Default>
+          </Switch>
+        </Grid>
+        <Grid item xs={5}>
+          <Switch condition={numbers[1]}>
+            <Case value={1}>
+              <DiceOneIcon/>
+            </Case>
+            <Case value={2}>
+              <DiceTwoIcon/>
+            </Case>
+            <Case value={3}>
+              <DiceThreeIcon/>
+            </Case>
+            <Case value={4}>
+              <DiceFourIcon/>
+            </Case>
+            <Case value={5}>
+              <DiceFiveIcon/>
+            </Case>
+            <Case value={6}>
+              <DiceSixIcon/>
+            </Case>
+            <Default>
+              null
+            </Default>
+          </Switch>
         </Grid>
       </Grid>
       <Grid container direction="row" justify="center" alignContent="center">

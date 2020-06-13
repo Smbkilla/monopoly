@@ -6,14 +6,40 @@ import properties from "../../constants/properties";
 import Dice from "../Dice/Dice";
 import Field from "../Field/Field";
 import PlayerData from "../PlayerData/PlayerData";
+import Snackbar from "@material-ui/core/Snackbar";
+import Alert from '@material-ui/lab/Alert';
 
 const DialogContext = createContext(null);
 
 const Board = () => {
-  const [dialogs, setDialogs] = useState({});
+  const [dialogs, setDialogs] = useState({
+    snackBar: {
+      open: true,
+      severity: "error",
+      message: "This be the message, and I test long one to se how it works?",
+    },
+  });
+
+  const onCloseSnackBar = () => {
+    setDialogs({
+      ...dialogs,
+      snackBar: {
+        ...dialogs.snackBar,
+        open: false,
+      },
+    })
+  };
 
   return (
     <DialogContext.Provider value={{dialogs, setDialogs}}>
+      <Snackbar open={dialogs.snackBar.open} autoHideDuration={6000}
+                onClose={onCloseSnackBar}
+                anchorOrigin={{vertical: "bottom", horizontal: "right"}}
+                message="I love snacks">
+        <Alert onClose={onCloseSnackBar} severity={dialogs.snackBar.severity}>
+          {dialogs.snackBar.message}
+        </Alert>
+      </Snackbar>
       <Grid container direction="row" justify="space-around" alignContent="center">
         <Grid item xs={10}>
           <Grid container direction="column" style={{marginTop: 70}}>
