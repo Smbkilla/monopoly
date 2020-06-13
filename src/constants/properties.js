@@ -368,7 +368,7 @@ export default {
   HOWARD_SCOOTER: {
     TITLE: "Howard's scooter",
     NAME: "howardScooter",
-    TYPE: fieldTypes.VEHICLE,
+    TYPE: fieldTypes.SCOOTER,
     INDEX: 35,
     PRICE: {
       PROPERTY: 200,

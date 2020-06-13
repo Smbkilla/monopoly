@@ -14,7 +14,13 @@ import LocalParkingIcon from '@material-ui/icons/LocalParking';
 import LockIcon from '@material-ui/icons/Lock';
 import NotListedLocationIcon from "@material-ui/icons/NotListedLocation";
 import RedeemIcon from "@material-ui/icons/Redeem";
+import TelegramIcon from '@material-ui/icons/Telegram';
+import MotorcycleIcon  from '@material-ui/icons/Motorcycle';
+import DriveEtaIcona from '@material-ui/icons/DriveEta';
+import LocalBarIcon from '@material-ui/icons/LocalBar';
+import WifiIcon from '@material-ui/icons/Wifi';
 import TrainIcon from '@material-ui/icons/Train';
+import MenuBookIcon from '@material-ui/icons/MenuBook';
 
 import fieldType from "../../constants/fieldType";
 import playerIcons from "../../constants/playerIcon";
@@ -67,8 +73,29 @@ export default function Field(props) {
         <Case value={fieldType.CHILL}>
           <IconFieldContent {...props} icon={<LocalParkingIcon style={iconStyle}/>}/>
         </Case>
-        <Case value={fieldType.CHOO_CHOO}>
+        <Case value={fieldType.TRAIN}>
           <IconFieldContent {...props} icon={<TrainIcon style={iconStyle}/>}/>
+        </Case>
+        <Case value={fieldType.SCOOTER}>
+          <IconFieldContent {...props} icon={<MotorcycleIcon style={iconStyle}/>}/>
+        </Case>
+        <Case value={fieldType.CAR}>
+          <IconFieldContent {...props} icon={<DriveEtaIcona style={iconStyle}/>}/>
+        </Case>
+        <Case value={fieldType.ROCKET}>
+          <IconFieldContent {...props} icon={<TelegramIcon style={iconStyle}/>}/>
+        </Case>
+        <Case value={fieldType.WIFI}>
+          <IconFieldContent {...props} icon={<WifiIcon style={iconStyle}/>}/>
+        </Case>
+        <Case value={fieldType.WINE}>
+          <IconFieldContent {...props} icon={<LocalBarIcon style={iconStyle}/>}/>
+        </Case>
+        <Case value={fieldType.RING}>
+          <IconFieldContent {...props} icon={<TrainIcon style={iconStyle}/>}/>
+        </Case>
+        <Case value={fieldType.BOOK}>
+          <IconFieldContent {...props} icon={<MenuBookIcon style={iconStyle}/>}/>
         </Case>
         <Default>
           null

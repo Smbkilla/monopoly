@@ -1,0 +1,22 @@
+.player-avatar {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    border-radius: 50%;
+    height: 50px;
+    margin: 1%;
+}
+
+.player-name {
+    color: #fff;
+}
+
+.property {
+    font-weight: 600;
+    font-size: 12pt;
+}
+
+.value {
+    font-weight: 100;
+    font-size: 10pt;
+}

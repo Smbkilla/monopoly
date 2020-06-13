@@ -11,7 +11,7 @@ export const getNewGamePlayers = (players = []) => {
 
 export const getNewGame = () => ({
   players: [
-    {name: "Penny", color: "Blue", index: 0, cash: 20000000, properties: []},
+    {name: "Penny", color: "Blue", index: 0, cash: 20000000, properties: [properties.SHELDON_OFFICE]},
     {name: "Howard", color: "Blue", index: 1, cash: 20000000, properties: []},
   ],
   currentPlayer: 0,
