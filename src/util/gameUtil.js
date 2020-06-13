@@ -1,18 +1,19 @@
 import properties from "../constants/properties";
+import gameConstants from "../constants/game";
 
 export const getNewGamePlayers = (players = []) => {
   return players.map((player, index) => ({
     ...player,
     index,
-    cash: 20000000,
+    cash: gameConstants.START_CASH,
     properties: [],
   }));
 };
 
 export const getNewGame = () => ({
   players: [
-    {name: "Penny", color: "Blue", index: 0, cash: 20000000, properties: [properties.SHELDON_OFFICE]},
-    {name: "Howard", color: "Blue", index: 1, cash: 20000000, properties: []},
+    {name: "Penny", color: "Blue", index: 0, cash: gameConstants.START_CASH, properties: [properties.SHELDON_OFFICE]},
+    {name: "Howard", color: "Blue", index: 1, cash: gameConstants.START_CASH, properties: []},
   ],
   currentPlayer: 0,
   parkingSpaceReward: 0,

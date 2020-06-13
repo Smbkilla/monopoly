@@ -3,11 +3,13 @@ import React, {useContext} from "react";
 import {Button, Grid} from "@material-ui/core";
 
 import {GameContext} from "../../App";
+import gameConstants from "../../constants/game";
 import useGetCurrentPlayer from "../../hooks/useGetCurrentPlayer";
 import useGetCurrentPlayerFieldName from "../../hooks/useGetCurrentPlayerFieldName";
 import {getPropertyByIndex, getPropertyByName} from "../../util/propertyUtil";
 
 import dice from "../../images/diceWhite.png";
+import {addPlayerFunds} from "../../util/playerUtil";
 
 function Dice() {
   const context = useContext(GameContext);
@@ -27,8 +29,9 @@ function Dice() {
 
     const newFieldIndex = getPropertyByName(playerFieldName).INDEX + diceSum;
     const diff = newFieldIndex - 39;
+    const passedStart = diff >= 0;
 
-    const newPlayerFieldIndex = diff >= 0 ? diff : newFieldIndex;
+    const newPlayerFieldIndex = passedStart ? diff : newFieldIndex;
     const fieldProperty = getPropertyByIndex(newPlayerFieldIndex);
 
     const newPlayerField = game.fields[fieldProperty.NAME];
@@ -50,6 +53,7 @@ function Dice() {
           players: [...newPlayerField.players, currentPlayer.index],
         }
       },
+      players: passedStart ? addPlayerFunds(game, game.currentPlayer, gameConstants.START_BONUS).players : game.players
     });
   };
 
