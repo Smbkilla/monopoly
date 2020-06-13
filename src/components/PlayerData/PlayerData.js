@@ -37,7 +37,7 @@ const PlayerData = () => {
                     <img className="player-avatar" alt={player.name} src={playerIcons[player.name]}/>
                 }
                 title={
-                    <Typography className="player-name" variant="button" component="h5">
+                    <Typography className="player-name" variant="button" component="h5" style={{color: player.color == playerColor.YELLOW ? '#000' : '#fff'}}>
                         {/* {player.name} */}
                         current player
                     </Typography>}/>
@@ -77,7 +77,14 @@ const PlayerData = () => {
                         </Grid>
                         <Grid item container>
                             <Grid container direction="row" alignItems="center" justify="center">
-                                {props.map((property) => {  
+                                {
+                                    props.length == 0 ?                                     
+                                            <Grid item>
+                                                <Typography className="value" variant="overline" component="h6" style={{marginTop: '5px'}}>
+                                                    You currently have no properties
+                                                </Typography>
+                                            </Grid> :
+                                props.map((property) => {  
                                     return (
                                         <Grid item xs={3}>
                                             <Tooltip title={property.TITLE} placement='top'>

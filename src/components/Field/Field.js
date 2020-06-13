@@ -116,9 +116,13 @@ function PropertyFieldContent({property}) {
     <React.Fragment>
       <CardHeader style={{backgroundColor: property.COLOR}}/>
       <CardContent className="cardContent">
-        <Typography className="title" variant="button" component="h6">
-          {property.TITLE}
-        </Typography>
+        <Grid container direction="column" alignItems="center">
+            <Grid item xs={5} container justify="center">
+              <Typography className="title" variant="button">
+                {property.TITLE}
+              </Typography>
+            </Grid>
+          </Grid>
       </CardContent>
       <CardActions className="cardActions">
         <Typography className="price" variant="button" component="h6">
@@ -134,7 +138,7 @@ function IconFieldContent({property, icon}) {
     <React.Fragment>
       <CardContent className="cardContent">
         <Grid container direction="column" alignItems="center">
-          <Grid item xs={4} container justify="center">
+          <Grid item xs={6} container justify="center">
             <Typography className="title" variant="button" component="h6">
               {property.TITLE}
             </Typography>

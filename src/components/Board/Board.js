@@ -15,12 +15,12 @@ const player = (name, color) => ({
 
 const Board = () => {
   return (
-    <Grid container direction="row" justify="space-around" alignContent="center">
+    <Grid container direction="row" justify="center" alignContent="center">
       <Grid item xs={10}>
         <Grid container direction="column" style={{marginTop: 70}}>
 
         {/* prvi redak */}
-        <Grid container direction="row" justify="space-around" alignContent="center" spacing={1}>
+        <Grid container direction="row" justify="space-around" alignContent="center">
           <Grid item xs={1} container justify="space-around" alignContent="center">
             <Field property={properties.START}/>
           </Grid>
