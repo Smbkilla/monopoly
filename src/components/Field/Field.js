@@ -102,8 +102,8 @@ export default function Field(props) {
         </Default>
       </Switch>
       <div className="players">
-        {players.map(player => (
-          <Avatar alt={player.name} src={playerIcons[player.name]}
+        {players.map((player, index) => (
+          <Avatar key={index} alt={player.name} src={playerIcons[player.name]}
                   style={avatarStyle(player.color)} className="player"/>
         ))}
       </div>

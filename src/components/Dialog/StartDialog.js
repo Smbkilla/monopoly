@@ -18,7 +18,7 @@ const StartDialog = ({ open, setOpen }) => {
     <Dialog open={open} onClose={handleClose}>
       <DialogTitle>Info</DialogTitle>
       <DialogContent>
-        <DialogContentText>You passed the START field</DialogContentText>
+        <DialogContentText>This is a START field</DialogContentText>
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose} color="primary" variant="contained">

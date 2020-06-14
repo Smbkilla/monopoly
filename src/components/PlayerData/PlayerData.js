@@ -84,9 +84,9 @@ const PlayerData = () => {
                                                     You currently have no properties
                                                 </Typography>
                                             </Grid> :
-                                props.map((property) => {  
+                                props.map((property, index) => {  
                                     return (
-                                        <Grid item xs={3}>
+                                        <Grid key={index} item xs={3}>
                                             <Tooltip title={property.TITLE} placement='top'>
                                                 <Card style={{margin: '5px'}}>
                                                     {property.TYPE == fieldType.PROPERTY ? <CardHeader style={{backgroundColor: property.COLOR, padding: '10px'}}/> : <CardHeader style={{padding: '10px'}}/>}

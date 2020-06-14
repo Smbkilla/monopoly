@@ -1,17 +1,30 @@
-import React, {createContext, useState} from "react";
+import React, {createContext, useState, useEffect, useContext} from "react";
 
 import Grid from "@material-ui/core/Grid";
-
+import _ from "lodash";
 import properties from "../../constants/properties";
 import Dice from "../Dice/Dice";
 import Field from "../Field/Field";
 import PlayerData from "../PlayerData/PlayerData";
 import Snackbar from "@material-ui/core/Snackbar";
 import Alert from '@material-ui/lab/Alert';
+import { GameContext } from "../../App";
+import useGetCurrentPlayerFieldName from "../../hooks/useGetCurrentPlayerFieldName";
+import { getPropertyByName } from "../../util/propertyUtil";
+import fieldType from "../../constants/fieldType";
+import { getDialog } from "../../util/boardUtil";
+
+import StartDialog from "../Dialog/StartDialog";
 
 const DialogContext = createContext(null);
 
 const Board = () => {
+  const {game} = useContext(GameContext);
+
+  const [showDialog, setShowDialog] = useState(false);
+  
+  const [dialog, setDialog] = useState(null);
+
   const [dialogs, setDialogs] = useState({
     snackBar: {
       open: true,
@@ -30,20 +43,36 @@ const Board = () => {
     })
   };
 
+  const helpDialog = (fieldName) => {
+    const field = _.find(game.fields, field => _.findIndex(field.players, playerIndex => playerIndex === game.playerBefore) !== -1);
+    const property = getPropertyByName(fieldName);
+    setDialog(getDialog(field, property, true, setShowDialog, game.playerBefore));
+    setShowDialog(true);
+    console.log("Field", field);
+    console.log("Property", property);
+  }
+
+  useEffect(() => {
+    console.log("Use effect board", game)
+    const fieldName = _.findKey(game.fields, field => 
+      _.findIndex(field.players, playerIndex => playerIndex === game.playerBefore) !== -1);
+    helpDialog(fieldName);
+  }, [game]);
+
   return (
     <DialogContext.Provider value={{dialogs, setDialogs}}>
-      <Snackbar open={dialogs.snackBar.open} autoHideDuration={6000}
+      {/* <Snackbar open={dialogs.snackBar.open} autoHideDuration={6000}
                 onClose={onCloseSnackBar}
                 anchorOrigin={{vertical: "bottom", horizontal: "right"}}
                 message="I love snacks">
         <Alert onClose={onCloseSnackBar} severity={dialogs.snackBar.severity}>
           {dialogs.snackBar.message}
         </Alert>
-      </Snackbar>
+      </Snackbar> */}
       <Grid container direction="row" justify="space-around" alignContent="center">
         <Grid item xs={10}>
           <Grid container direction="column" style={{marginTop: 70}}>
-
+            {showDialog ? (dialog) : null}
             {/* prvi redak */}
             <Grid container direction="row" justify="space-around" alignContent="center">
               <Grid item xs={1} container justify="space-around" alignContent="center">

@@ -5,21 +5,36 @@ import {
   DialogContent,
   DialogContentText,
   DialogActions,
-  Button
+  Button,
 } from "@material-ui/core";
 
-const FieldInfoDialog = ({ open, setOpen, fieldInfo }) => {
+const FieldInfoDialog = ({
+  open,
+  setOpen,
+  fieldInfo,
+  propertyInfo,
+  property = false,
+}) => {
 
   const handleClose = () => {
     setOpen(false);
+    // manipulate with cash
   };
 
   return (
     <Dialog open={open} onClose={handleClose}>
-    <DialogTitle>Field name</DialogTitle>
+      <DialogTitle>{propertyInfo.TITLE}</DialogTitle>
       <DialogContent>
-        <DialogContentText>Owner: </DialogContentText>
-        <DialogContentText>Price: </DialogContentText>
+        {property ? (
+          ((<DialogContentText>Owner: {fieldInfo.owner}</DialogContentText>),
+          (
+            <DialogContentText>
+              Price: {propertyInfo.PRICE["PROPERTY"]}
+            </DialogContentText>
+          ))
+        ) : (
+          <DialogContentText>That's BS</DialogContentText>
+        )}
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose} color="primary" variant="contained">

@@ -1,34 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   Dialog,
   DialogTitle,
   DialogContent,
   DialogContentText,
   DialogActions,
-  Button
+  Button,
 } from "@material-ui/core";
+import { GameContext } from "../../App";
 
-const PayDialog = ({ open, setOpen, fieldInfo }) => {
+const PayDialog = ({
+  open,
+  setOpen,
+  fieldInfo,
+  propertyInfo,
+  property = false,
+}) => {
+
+  const {game, setGame} = useContext(GameContext);
 
   const handleClose = () => {
     setOpen(false);
   };
 
-  // check if player is owner so that he cannot pay himself
-  // otherwise player has to pay
+  const calculateAmount = () => {
+    return (
+      Math.ceil(propertyInfo.PRICE.PROPERTY / 10 +
+      fieldInfo.numberOfHouses * 10 +
+      fieldInfo.numberOfHotels * 25)
+    );
+  };
 
   const payField = () => {
-      // money goes to owner of the field
-      // amount is calculated based on a number of houses/hotels
-      handleClose()
-  }
+    game.players[game.playerBefore].cash -= calculateAmount();
+    game.players[fieldInfo.owner].cash += calculateAmount();
+    setGame(game);
+    handleClose();
+  };
 
   return (
     <Dialog open={open} onClose={handleClose}>
-    <DialogTitle>Field name</DialogTitle>
+      <DialogTitle>{propertyInfo.TITLE}</DialogTitle>
       <DialogContent>
-        <DialogContentText>Owner: </DialogContentText>
-        <DialogContentText>Price: </DialogContentText>
+        <DialogContentText>Owner: {fieldInfo.owner}</DialogContentText>
+        <DialogContentText>Price: {calculateAmount()}</DialogContentText>
       </DialogContent>
       <DialogActions>
         <Button onClick={payField} color="primary" variant="contained">

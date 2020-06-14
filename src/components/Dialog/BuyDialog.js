@@ -1,45 +1,119 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   Dialog,
   DialogTitle,
   DialogContent,
   DialogContentText,
   DialogActions,
-  Button
+  Button,
 } from "@material-ui/core";
+import { GameContext } from "../../App";
 
-const BuyDialog = ({ open, setOpen, fieldInfo }) => {
+const BuyDialog = ({
+  open,
+  setOpen,
+  fieldInfo,
+  propertyInfo,
+  property = false,
+  owner = false,
+}) => {
+  const { game, setGame } = useContext(GameContext);
 
   const handleClose = () => {
     setOpen(false);
   };
 
-  // check if player is not owner so that he cannot buy house or hotel
-  // otherwise, if player is already an owner, he can buy house or hotel
+  const updateGameContext = () => {
+    game.fields[propertyInfo.NAME] = fieldInfo;
+    setGame(game);
+    handleClose();
+  };
 
   const buyField = () => {
-      // money goes to parking field and player becomes an owner
-      // 4 different methods or 1 for them all
-  }
+    // money goes to parking field and player becomes an owner
+    fieldInfo.owner = game.playerBefore;
+    game.parkingSpaceReward += propertyInfo.PRICE.PROPERTY;
+    game.players[game.playerBefore].cash -= propertyInfo.PRICE.PROPERTY;
+    console.log("Buy field");
+    updateGameContext();
+  };
 
-  return (
-    <Dialog open={open} onClose={handleClose}>
-    <DialogTitle>Field name</DialogTitle>
-      <DialogContent>
-        <DialogContentText>Field price: </DialogContentText>
-        <DialogContentText>House price: </DialogContentText>
-        <DialogContentText>Hotel price: </DialogContentText>
-      </DialogContent>
-      <DialogActions>
+  const buyHouse = () => {
+    fieldInfo.numberOfHouses++;
+    game.parkingSpaceReward += propertyInfo.PRICE.HOUSE;
+    game.players[game.playerBefore].cash -= propertyInfo.PRICE.HOUSE;
+    console.log("Buy house");
+    updateGameContext();
+  };
+
+  const buyHotel = () => {
+    fieldInfo.numberOfHotels++;
+    game.parkingSpaceReward += propertyInfo.PRICE.HOTEL;
+    game.players[game.playerBefore].cash -= propertyInfo.PRICE.HOTEL;
+    console.log("Buy hotel");
+    updateGameContext();
+  };
+
+  const showFields = () => {
+    if (property) {
+      if (owner) {
+        return (
+          <>
+            <DialogContentText>
+              House price: {propertyInfo.PRICE.HOUSE}
+            </DialogContentText>
+            <DialogContentText>
+              Hotel price: {propertyInfo.PRICE.HOTEL}
+            </DialogContentText>
+          </>
+        );
+      }
+      return (
+        <DialogContentText>
+          Field price: {propertyInfo.PRICE.PROPERTY}
+        </DialogContentText>
+      );
+    }
+    return (
+      <DialogContentText>
+        Field price: {propertyInfo.PRICE.PROPERTY}
+      </DialogContentText>
+    );
+  };
+
+  const showButtons = () => {
+    if (property) {
+      if (owner) {
+        return (
+          <>
+            <Button onClick={buyHouse} color="primary">
+              Buy house
+            </Button>
+            <Button onClick={buyHotel} color="primary">
+              Buy hotel
+            </Button>
+          </>
+        );
+      }
+      return (
         <Button onClick={buyField} color="primary" variant="contained">
           Buy field
         </Button>
-        <Button onClick={buyField} color="primary">
-          Buy house
-        </Button>
-        <Button onClick={buyField} color="primary">
-          Buy hotel
-        </Button>
+      );
+    }
+    return (
+      <Button onClick={buyField} color="primary" variant="contained">
+        Buy field
+      </Button>
+    );
+  };
+
+  return (
+    <Dialog open={open} onClose={handleClose}>
+      <DialogTitle>{propertyInfo.TITLE}</DialogTitle>
+      <DialogContent>{showFields()}</DialogContent>
+      <DialogActions>
+        {showButtons()}
         <Button onClick={handleClose} color="primary">
           Cancel
         </Button>
