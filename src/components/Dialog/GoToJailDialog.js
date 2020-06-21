@@ -15,8 +15,19 @@ const GoToJailDialog = ({ open, setOpen }) => {
   const handleClose = (flag) => {
     if (!flag) {
       game.fields.jail.players.push(game.playerBefore);
-      game.fields.goToJail.players.filter(player => player !== game.playerBefore);
-      setGame(game);
+      const goToJailFields = game.fields.goToJail.players.filter(
+        (value) => value !== game.playerBefore
+      );
+      setGame({
+        ...game,
+        fields: {
+          ...game.fields,
+          goToJail: {
+            ...game.fields.goToJail,
+            players: goToJailFields,
+          },
+        },
+      });
     }
     setOpen(false);
   };
@@ -36,7 +47,7 @@ const GoToJailDialog = ({ open, setOpen }) => {
       </DialogContent>
       <DialogActions>
         <Button
-          onClick={handleClose(false)}
+          onClick={() => handleClose(false)}
           color="primary"
           variant="contained"
         >
