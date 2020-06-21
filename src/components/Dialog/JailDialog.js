@@ -46,7 +46,7 @@ const JailDialog = ({ open, setOpen, visit = false }) => {
     if (visit) {
       return (
         <Button
-          onClick={handleClose(false)}
+          onClick={handleClose}
           color="primary"
           variant="contained"
         >
@@ -60,8 +60,9 @@ const JailDialog = ({ open, setOpen, visit = false }) => {
       </Button>
     );
   };
+
   return (
-    <Dialog open={open} >
+    <Dialog open={open}>
       <DialogTitle>Info</DialogTitle>
       <DialogContent>{showContent()}</DialogContent>
       <DialogActions>{showButton()}</DialogActions>
