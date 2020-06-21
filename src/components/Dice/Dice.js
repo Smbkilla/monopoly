@@ -33,7 +33,7 @@ function Dice() {
       setGame(movePlayerToNewField(diceSum, game));
       visit = true;
     } else {
-      if(firstNumber == secondNumber) {
+      if(firstNumber === secondNumber) {
         //izasao iz zatvora
         setGame(setPlayerJailMoves(game, game.currentPlayer, 0));
       } else {

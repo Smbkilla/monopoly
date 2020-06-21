@@ -1,4 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
+
 import {
   Dialog,
   DialogTitle,
@@ -7,6 +8,7 @@ import {
   DialogActions,
   Button,
 } from "@material-ui/core";
+
 import {GameContext} from "../../App";
 
 const FieldInfoDialog = ({

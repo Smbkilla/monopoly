@@ -57,7 +57,7 @@ const Board = () => {
         showDialog: false
       });
     }
-  }, [dialogs]);
+  }, [dialogs, game.currentPlayer, game.fields]);
 
   return (
     <DialogContext.Provider value={{dialogs, setDialogs}}>

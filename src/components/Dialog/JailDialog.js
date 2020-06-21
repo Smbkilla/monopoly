@@ -1,4 +1,5 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
+
 import {
   Dialog,
   DialogTitle,
@@ -7,6 +8,7 @@ import {
   DialogActions,
   Button,
 } from "@material-ui/core";
+
 import { GameContext } from "../../App";
 import useGetCurrentPlayer from "../../hooks/useGetCurrentPlayer";
 
@@ -27,13 +29,6 @@ const JailDialog = ({ open, setOpen, visit = false }) => {
     }
 
     setOpen(false);
-  };
-
-  const handlePayment = () => {
-    game.players[game.currentPlayer].cash -= 200;
-    game.parkingSpaceReward += 200;
-    setGame(game);
-    handleClose();
   };
 
   const showContent = () => {

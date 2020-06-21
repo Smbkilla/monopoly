@@ -10,8 +10,6 @@ import GoToJailDialog from "../components/Dialog/GoToJailDialog";
 import ParkingDialog from "../components/Dialog/ParkingDialog";
 import FieldInfoDialog from "../components/Dialog/FieldInfoDialog";
 
-import useGetCurrentPlayer from "../hooks/useGetCurrentPlayer";
-
 export function getDialog(
   field,
   property = properties.START,

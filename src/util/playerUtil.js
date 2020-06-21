@@ -78,8 +78,6 @@ export function movePlayerToNewField(steps, game) {
 
   const newPlayerField = game.fields[fieldProperty.NAME];
 
-  const newCurrentPlayer = game.currentPlayer + 1;
-
   return {
     ...game,
     fields: {

@@ -3,6 +3,7 @@ import React from "react";
 import Switch, {Case, Default} from "react-switch-case";
 
 import Avatar from "@material-ui/core/Avatar";
+import Badge from "@material-ui/core/Badge";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -28,11 +29,9 @@ import MenuBookIcon from '@material-ui/icons/MenuBook';
 import fieldType from "../../constants/fieldType";
 import playerIcons from "../../constants/playerIcon";
 import useGetFieldPlayers from "../../hooks/useGetFieldPlayers";
+import useGetFieldRealEstate from "../../hooks/useGetFieldRealEstate";
 
 import "./Field.css";
-import useGetFieldRealEstate from "../../hooks/useGetFieldRealEstate";
-import Badge from "@material-ui/core/Badge";
-import {withStyles} from "@material-ui/styles";
 
 
 const iconStyle = {
@@ -48,15 +47,6 @@ const avatarStyle = (color) => ({
   height: "30px",
   width: "30px",
 });
-
-const StyledBadge = withStyles((theme) => ({
-  badge: {
-    right: -3,
-    top: 13,
-    border: `2px solid ${theme.palette.background.paper}`,
-    padding: '0 4px',
-  },
-}))(Badge);
 
 export default function Field(props) {
   const {property} = props;

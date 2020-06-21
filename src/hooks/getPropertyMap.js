@@ -1,4 +1,3 @@
-import React from "react";
 import properties from "../constants/properties";
 
 function getPropertyMap(props) {

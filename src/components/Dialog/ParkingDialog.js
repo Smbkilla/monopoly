@@ -1,13 +1,8 @@
-import React, { useState, useContext } from "react";
-import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
-  DialogActions,
-  Button,
-} from "@material-ui/core";
-import { GameContext } from "../../App";
+import React, {useContext} from "react";
+
+import {Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle,} from "@material-ui/core";
+
+import {GameContext} from "../../App";
 
 const ParkingDialog = ({ open, setOpen }) => {
   const { game, setGame } = useContext(GameContext);

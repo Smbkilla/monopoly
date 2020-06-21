@@ -1,21 +1,19 @@
 import React from "react";
+
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import playerName from "../../constants/playerName";
 import playerColor from "../../constants/playerColor";
 import playerIcons from "../../constants/playerIcon";
-import properties from "../../constants/properties";
 import fieldType from "../../constants/fieldType";
 import Divider from '@material-ui/core/Divider';
 import getPropertyMap from "../../hooks/getPropertyMap";
-import Switch, {Case, Default} from "react-switch-case";
+import Switch, {Case} from "react-switch-case";
 import Tooltip from '@material-ui/core/Tooltip';
-
 import TelegramIcon from '@material-ui/icons/Telegram';
-import MotorcycleIcon  from '@material-ui/icons/Motorcycle';
+import MotorcycleIcon from '@material-ui/icons/Motorcycle';
 import DriveEtaIcona from '@material-ui/icons/DriveEta';
 import LocalBarIcon from '@material-ui/icons/LocalBar';
 import WifiIcon from '@material-ui/icons/Wifi';
@@ -37,7 +35,7 @@ const PlayerData = () => {
                     <img className="player-avatar" alt={player.name} src={playerIcons[player.name]}/>
                 }
                 title={
-                    <Typography className="player-name" variant="button" component="h5" style={{color: player.color == playerColor.YELLOW ? '#000' : '#fff'}}>
+                    <Typography className="player-name" variant="button" component="h5" style={{color: player.color === playerColor.YELLOW ? '#000' : '#fff'}}>
                         {/* {player.name} */}
                         current player
                     </Typography>}/>
@@ -78,7 +76,7 @@ const PlayerData = () => {
                         <Grid item container>
                             <Grid container direction="row" alignItems="center" justify="center">
                                 {
-                                    props.length == 0 ?                                     
+                                    props.length === 0 ?
                                             <Grid item>
                                                 <Typography className="value" variant="overline" component="h6" style={{marginTop: '5px'}}>
                                                     You currently have no properties
@@ -89,7 +87,7 @@ const PlayerData = () => {
                                         <Grid key={index} item xs={3}>
                                             <Tooltip title={property.TITLE} placement='top'>
                                                 <Card style={{margin: '5px'}}>
-                                                    {property.TYPE == fieldType.PROPERTY ? <CardHeader style={{backgroundColor: property.COLOR, padding: '10px'}}/> : <CardHeader style={{padding: '10px'}}/>}
+                                                    {property.TYPE === fieldType.PROPERTY ? <CardHeader style={{backgroundColor: property.COLOR, padding: '10px'}}/> : <CardHeader style={{padding: '10px'}}/>}
                                                     <CardContent style={{display: 'flex', alignItems: 'center', justifyContent: 'center', height: '8px', padding: '8px'}}>
                                                         <Switch condition={property.TYPE}>
                                                             <Case value={fieldType.SCOOTER}>
