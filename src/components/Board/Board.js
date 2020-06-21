@@ -1,20 +1,16 @@
-import React, {createContext, useState, useEffect, useContext} from "react";
+import React, {createContext, useContext, useEffect, useState} from "react";
 
-import Grid from "@material-ui/core/Grid";
+import {Grid, Snackbar} from "@material-ui/core";
+import Alert from '@material-ui/lab/Alert';
 import _ from "lodash";
+
+import {GameContext} from "../../App";
 import properties from "../../constants/properties";
 import Dice from "../Dice/Dice";
 import Field from "../Field/Field";
 import PlayerData from "../PlayerData/PlayerData";
-import Snackbar from "@material-ui/core/Snackbar";
-import Alert from '@material-ui/lab/Alert';
-import { GameContext } from "../../App";
-import useGetCurrentPlayerFieldName from "../../hooks/useGetCurrentPlayerFieldName";
-import { getPropertyByName } from "../../util/propertyUtil";
-import fieldType from "../../constants/fieldType";
-import { getDialog } from "../../util/boardUtil";
-
-import StartDialog from "../Dialog/StartDialog";
+import {getDialog} from "../../util/boardUtil";
+import {getPropertyByName} from "../../util/propertyUtil";
 
 export const DialogContext = createContext(null);
 
@@ -22,28 +18,25 @@ const Board = () => {
   const {game} = useContext(GameContext);
 
   const [showDialog, setShowDialog] = useState(false);
-  
+
   const [dialog, setDialog] = useState(null);
 
-  // const {dialogContext} = useContext(DialogContext);
-
   const [dialogs, setDialogs] = useState({
-    showDialog: true
-    // snackBar: {
-    //   open: true,
-    //   severity: "error",
-    //   message: "This be the message, and I test long one to se how it works?",
-    // },
+    snackBar: {
+      open: true,
+      severity: "error",
+      message: "This be the message, and I test long one to se how it works?",
+    },
   });
 
   const onCloseSnackBar = () => {
-    // setDialogs({
-    //   ...dialogs,
-    //   snackBar: {
-    //     ...dialogs.snackBar,
-    //     open: false,
-    //   },
-    // })
+    setDialogs({
+      ...dialogs,
+      snackBar: {
+        ...dialogs.snackBar,
+        open: false,
+      },
+    })
   };
 
   const helpDialog = (fieldName) => {
@@ -53,12 +46,12 @@ const Board = () => {
     setShowDialog(true);
     console.log("Field", field);
     console.log("Property", property);
-  }
+  };
 
   useEffect(() => {
     console.log("Use effect board", game);
     if(dialogs.showDialog) {
-      const fieldName = _.findKey(game.fields, field => 
+      const fieldName = _.findKey(game.fields, field =>
         _.findIndex(field.players, playerIndex => playerIndex === game.currentPlayer) !== -1);
       helpDialog(fieldName);
 
@@ -71,14 +64,14 @@ const Board = () => {
 
   return (
     <DialogContext.Provider value={{dialogs, setDialogs}}>
-      {/* <Snackbar open={dialogs.snackBar.open} autoHideDuration={6000}
+      <Snackbar open={dialogs.snackBar.open} autoHideDuration={6000}
                 onClose={onCloseSnackBar}
                 anchorOrigin={{vertical: "bottom", horizontal: "right"}}
-                message="I love snacks">
+                message={dialogs.snackBar.message}>
         <Alert onClose={onCloseSnackBar} severity={dialogs.snackBar.severity}>
           {dialogs.snackBar.message}
         </Alert>
-      </Snackbar> */}
+      </Snackbar>
       <Grid container direction="row" justify="space-around" alignContent="center">
         <Grid item xs={10}>
           <Grid container direction="column" style={{marginTop: 70}}>

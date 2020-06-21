@@ -79,7 +79,6 @@ export function movePlayerToNewField(steps, game) {
   const newPlayerField = game.fields[fieldProperty.NAME];
 
   const newCurrentPlayer = game.currentPlayer + 1;
-  const currentPlayerDiff = newCurrentPlayer - game.players.length;
 
   return {
     ...game,
@@ -96,4 +95,16 @@ export function movePlayerToNewField(steps, game) {
     },
     players: passedStart ? addPlayerFunds(game, game.currentPlayer, gameConstants.START_BONUS).players : game.players
   };
+}
+
+export function getNextFieldName(steps, game){
+  const {currentPlayer, fields} = game;
+  const playerFieldName = _.findKey(fields, field => _.findIndex(field.players, playerIndex => playerIndex === currentPlayer) !== -1);
+  const newFieldIndex = getPropertyByName(playerFieldName).INDEX + steps;
+  const diff = newFieldIndex - 39;
+  const passedStart = diff >= 0;
+
+  const newPlayerFieldIndex = passedStart ? diff : newFieldIndex;
+
+  return getPropertyByIndex(newPlayerFieldIndex).TITLE;
 }

@@ -13,23 +13,30 @@ export const getNewGamePlayers = (players = []) => {
 
 export const getNewGame = () => ({
   players: [
-    {name: "Penny", color: "Blue", index: 0, cash: gameConstants.START_CASH, properties: [properties.SHELDON_OFFICE], jailMoves: 0},
-    {name: "Howard", color: "Blue", index: 1, cash: gameConstants.START_CASH, properties: [], jailMoves: 3},
+    {name: "Penny", color: "Blue", index: 0, cash: gameConstants.START_CASH, jailMoves: 0, properties: [properties.SHELDON_OFFICE]},
+    {
+      name: "Howard", color: "Blue", index: 1, cash: gameConstants.START_CASH, jailMoves: 0, properties: [
+        properties.BROKEN_ELEVATOR,
+        properties.LAUNDRY_ROOM,
+        properties.NORTH_POLE_RESEARCH_STATION,
+        properties.CERN_LARGE_HADRON_COLLIDER,
+        properties.INTERNATIONAL_SPACE_STATION]
+    },
   ],
   currentPlayer: 0,
   parkingSpaceReward: 0,
   fields: {
     [properties.START.NAME]: {
-      players: [0],
+      players: [0, 1],
       numberOfHouses: 0,
       numberOfHotels: 0,
       owner: null,
     },
     [properties.BROKEN_ELEVATOR.NAME]: {
       players: [],
-      numberOfHouses: 0,
-      numberOfHotels: 0,
-      owner: null,
+      numberOfHouses: 2,
+      numberOfHotels: 2,
+      owner: 1,
     },
     [properties.ROOMATE_AGREEMENT_1.NAME]: {
       players: [],
@@ -39,9 +46,9 @@ export const getNewGame = () => ({
     },
     [properties.LAUNDRY_ROOM.NAME]: {
       players: [],
-      numberOfHouses: 0,
-      numberOfHotels: 0,
-      owner: null,
+      numberOfHouses: 4,
+      numberOfHotels: 4,
+      owner: 1,
     },
     [properties.NEW_COMIC_BOOK_DAY.NAME]: {
       players: [],
@@ -57,9 +64,9 @@ export const getNewGame = () => ({
     },
     [properties.NORTH_POLE_RESEARCH_STATION.NAME]: {
       players: [],
-      numberOfHouses: 0,
-      numberOfHotels: 0,
-      owner: null,
+      numberOfHouses: 2,
+      numberOfHotels: 1,
+      owner: 1,
     },
     [properties.FORTUNE_COOKIE_1.NAME]: {
       players: [],
@@ -71,16 +78,16 @@ export const getNewGame = () => ({
       players: [],
       numberOfHouses: 0,
       numberOfHotels: 0,
-      owner: null,
+      owner: 1,
     },
     [properties.INTERNATIONAL_SPACE_STATION.NAME]: {
       players: [],
       numberOfHouses: 0,
       numberOfHotels: 0,
-      owner: null,
+      owner: 1,
     },
     [properties.JAIL.NAME]: {
-      players: [1],
+      players: [],
       numberOfHouses: 0,
       numberOfHotels: 0,
       owner: null,
