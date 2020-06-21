@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   Dialog,
   DialogTitle,
@@ -7,10 +7,22 @@ import {
   DialogActions,
   Button
 } from "@material-ui/core";
+import {GameContext} from "../../App";
 
 const StartDialog = ({ open, setOpen }) => {
+  const {game, setGame} = useContext(GameContext);
+
   const handleClose = () => {
+
     setOpen(false);
+
+    // const newCurrentPlayer = game.currentPlayer + 1;
+    // const currentPlayerDiff = newCurrentPlayer - game.players.length;
+
+    // setGame({
+    //   ...game,
+    //   currentPlayer: currentPlayerDiff >= 0 ? currentPlayerDiff : newCurrentPlayer
+    // });
     // add money to player
   };
 

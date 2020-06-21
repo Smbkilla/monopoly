@@ -20,6 +20,14 @@ const PayDialog = ({
   const {game, setGame} = useContext(GameContext);
 
   const handleClose = () => {
+    const newCurrentPlayer = game.currentPlayer + 1;
+    const currentPlayerDiff = newCurrentPlayer - game.players.length;
+
+    setGame({
+      ...game,
+      currentPlayer: currentPlayerDiff >= 0 ? currentPlayerDiff : newCurrentPlayer
+    });
+
     setOpen(false);
   };
 
@@ -32,7 +40,7 @@ const PayDialog = ({
   };
 
   const payField = () => {
-    game.players[game.playerBefore].cash -= calculateAmount();
+    game.players[game.currentPlayer].cash -= calculateAmount();
     game.players[fieldInfo.owner].cash += calculateAmount();
     setGame(game);
     handleClose();
