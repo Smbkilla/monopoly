@@ -44,7 +44,7 @@ function Dice() {
     setDialogs({
       ...dialogs,
       snackBar: {
-        open: true,
+        open: player.jailMoves <= 0,
         severity: "info",
         message: `${player.name} rolled ${diceSum} and moves to ${getNextFieldName(diceSum, game)}`,
       },
