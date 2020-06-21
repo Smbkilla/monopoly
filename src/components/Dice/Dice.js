@@ -13,6 +13,8 @@ import { getPropertyByName } from "../../util/propertyUtil";
 import fieldType from "../../constants/fieldType";
 import { getDialog } from "../../util/boardUtil";
 import _ from "lodash";
+import useGetCurrentPlayer from "../../hooks/useGetCurrentPlayer"
+import {setPlayerJailMoves} from "../../util/playerUtil";
 
 function Dice() {
   const [numbers, setNumbers] = useState([6, 6]);
@@ -23,6 +25,8 @@ function Dice() {
   
   const [dialog, setDialog] = useState(null);
 
+  const player = useGetCurrentPlayer();
+
   const getRandomInt = max => {
     return Math.floor(Math.random() * Math.floor(max));
   };
@@ -31,16 +35,31 @@ function Dice() {
     const firstNumber = getRandomInt(5) + 1;
     const secondNumber = getRandomInt(5) + 1;
 
-    setNumbers([firstNumber, secondNumber]);
+    console.log(player);
 
-    setGame(movePlayerToNewField(firstNumber + secondNumber, game));
+    console.log(player.jailMoves);
+
+    let visit = false;
+
+    if(player.jailMoves <= 0) {
+
+      setNumbers([firstNumber, secondNumber]);
+
+      setGame(movePlayerToNewField(firstNumber + secondNumber, game));
+      visit = true;
+    } else {
+      if(firstNumber == secondNumber) {
+        //izasao iz zatvora
+        setGame(setPlayerJailMoves(game, game.currentPlayer, 0));
+      } else {
+        setGame(setPlayerJailMoves(game, game.currentPlayer, player.jailMoves - 1));
+      }
+    }
+
     setDialogs({...dialogs,
-      showDialog: true
+      showDialog: true,
+      jailVisit: visit
     });
-
-    // const fieldName = _.findKey(game.fields, field => 
-    //   _.findIndex(field.players, playerIndex => playerIndex === game.currentPlayer) !== -1);
-    // helpDialog(fieldName);
   };
 
   return (

@@ -10,12 +10,15 @@ import GoToJailDialog from "../components/Dialog/GoToJailDialog";
 import ParkingDialog from "../components/Dialog/ParkingDialog";
 import FieldInfoDialog from "../components/Dialog/FieldInfoDialog";
 
+import useGetCurrentPlayer from "../hooks/useGetCurrentPlayer";
+
 export function getDialog(
   field,
   property = properties.START,
   showDialog,
   setShowDialog,
-  currentPlayer
+  currentPlayer,
+  visit
 ) {
   switch (property.TYPE) {
     case fieldType.FORTUNE_COOKIE:
@@ -44,7 +47,7 @@ export function getDialog(
     case fieldType.JAIL:
       console.log("JailDialogVisit");
       return (
-        <JailDialog open={showDialog} setOpen={setShowDialog} visit={true} />
+        <JailDialog open={showDialog} setOpen={setShowDialog} visit={visit} />
       );
     case fieldType.GO_TO_JAIL:
       console.log("JailDialog");

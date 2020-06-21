@@ -49,7 +49,7 @@ const Board = () => {
   const helpDialog = (fieldName) => {
     const field = _.find(game.fields, field => _.findIndex(field.players, playerIndex => playerIndex === game.currentPlayer) !== -1);
     const property = getPropertyByName(fieldName);
-    setDialog(getDialog(field, property, true, setShowDialog, game.currentPlayer));
+    setDialog(getDialog(field, property, true, setShowDialog, game.currentPlayer, dialogs.jailVisit));
     setShowDialog(true);
     console.log("Field", field);
     console.log("Property", property);
