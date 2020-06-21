@@ -9,6 +9,7 @@ import {
 } from "@material-ui/core";
 import { GameContext } from "../../App";
 import useGetOwnerPlayer from "../../hooks/useGetOwnerPlayer";
+import { payAnotherPlayer } from "../../util/playerUtil";
 
 const PayDialog = ({
   open,
@@ -17,8 +18,7 @@ const PayDialog = ({
   propertyInfo,
   property = false,
 }) => {
-
-  const {game, setGame} = useContext(GameContext);
+  const { game, setGame } = useContext(GameContext);
   const owner = useGetOwnerPlayer(fieldInfo.owner);
 
   const handleClose = () => {
@@ -27,25 +27,25 @@ const PayDialog = ({
 
     setGame({
       ...game,
-      currentPlayer: currentPlayerDiff >= 0 ? currentPlayerDiff : newCurrentPlayer
+      players: payAnotherPlayer(
+        game,
+        game.currentPlayer,
+        fieldInfo.owner,
+        calculateAmount()
+      ).players,
+      currentPlayer:
+        currentPlayerDiff >= 0 ? currentPlayerDiff : newCurrentPlayer,
     });
 
     setOpen(false);
   };
 
   const calculateAmount = () => {
-    return (
-      Math.ceil(propertyInfo.PRICE.PROPERTY / 10 +
-      fieldInfo.numberOfHouses * 10 +
-      fieldInfo.numberOfHotels * 25)
+    return Math.ceil(
+      propertyInfo.PRICE.PROPERTY / 10 +
+        fieldInfo.numberOfHouses * 10 +
+        fieldInfo.numberOfHotels * 25
     );
-  };
-
-  const payField = () => {
-    game.players[game.currentPlayer].cash -= calculateAmount();
-    game.players[fieldInfo.owner].cash += calculateAmount();
-    setGame(game);
-    handleClose();
   };
 
   return (
@@ -56,7 +56,7 @@ const PayDialog = ({
         <DialogContentText>Price: {calculateAmount()}</DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={payField} color="primary" variant="contained">
+        <Button onClick={handleClose} color="primary" variant="contained">
           Pay
         </Button>
       </DialogActions>

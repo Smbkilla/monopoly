@@ -8,21 +8,22 @@ import {
   Button,
 } from "@material-ui/core";
 import { GameContext } from "../../App";
+import { addPlayerFunds, removeGameFunds } from "../../util/playerUtil";
 
 const ParkingDialog = ({ open, setOpen }) => {
   const { game, setGame } = useContext(GameContext);
 
   const handleClose = () => {
-    game.players[game.currentPlayer].cash += game.parkingSpaceReward;
-    game.parkingSpaceReward = 0;
-    setGame(game);
-
     const newCurrentPlayer = game.currentPlayer + 1;
     const currentPlayerDiff = newCurrentPlayer - game.players.length;
 
     setGame({
       ...game,
-      currentPlayer: currentPlayerDiff >= 0 ? currentPlayerDiff : newCurrentPlayer
+      players: addPlayerFunds(game, game.currentPlayer, game.parkingSpaceReward)
+        .players,
+      parkingSpaceReward: removeGameFunds(game).parkingSpaceReward,
+      currentPlayer:
+        currentPlayerDiff >= 0 ? currentPlayerDiff : newCurrentPlayer,
     });
 
     setOpen(false);

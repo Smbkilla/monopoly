@@ -8,6 +8,7 @@ import {
   Button,
 } from "@material-ui/core";
 import { GameContext } from "../../App";
+import { removePlayerFunds, addOwner, addHouse, addHotel, addGameFunds } from "../../util/playerUtil";
 
 const BuyDialog = ({
   open,
@@ -19,7 +20,7 @@ const BuyDialog = ({
 }) => {
   const { game, setGame } = useContext(GameContext);
 
-  const handleClose = () => {
+  const handleClose = (data) => {
     const newCurrentPlayer = game.currentPlayer + 1;
     const currentPlayerDiff = newCurrentPlayer - game.players.length;
 
@@ -27,44 +28,33 @@ const BuyDialog = ({
 
     setGame({
       ...game,
+      players: data.players,
+      fields: data.fields,
       currentPlayer: currentPlayerDiff >= 0 ? currentPlayerDiff : newCurrentPlayer
     });
-
-    console.log(game.currentPlayer);
 
     setOpen(false);
   };
 
-  const updateGameContext = () => {
-    game.fields[propertyInfo.NAME] = fieldInfo;
-    setGame(game);
-    handleClose();
-  };
-
   const buyField = () => {
-    // money goes to parking field and player becomes an owner
-    fieldInfo.owner = game.currentPlayer;
-    game.parkingSpaceReward += propertyInfo.PRICE.PROPERTY;
-    game.players[game.currentPlayer].cash -= propertyInfo.PRICE.PROPERTY;
-    game.players[game.currentPlayer].properties.push(propertyInfo);
-    console.log("Buy field");
-    updateGameContext();
+    handleClose({
+      fields: addOwner(game, game.currentPlayer, propertyInfo.NAME).fields,
+      players: removePlayerFunds(game, game.currentPlayer, propertyInfo.PRICE.PROPERTY).players,
+    });
   };
 
   const buyHouse = () => {
-    fieldInfo.numberOfHouses++;
-    game.parkingSpaceReward += propertyInfo.PRICE.HOUSE;
-    game.players[game.currentPlayer].cash -= propertyInfo.PRICE.HOUSE;
-    console.log("Buy house");
-    updateGameContext();
+    handleClose({
+      fields: addHouse(game, propertyInfo.NAME).fields,
+      players: removePlayerFunds(game, game.currentPlayer, propertyInfo.PRICE.HOUSE).players,
+    });
   };
 
   const buyHotel = () => {
-    fieldInfo.numberOfHotels++;
-    game.parkingSpaceReward += propertyInfo.PRICE.HOTEL;
-    game.players[game.currentPlayer].cash -= propertyInfo.PRICE.HOTEL;
-    console.log("Buy hotel");
-    updateGameContext();
+    handleClose({
+      fields: addHotel(game, propertyInfo.NAME).fields,
+      players: removePlayerFunds(game, game.currentPlayer, propertyInfo.PRICE.HOTEL).players,
+    });
   };
 
   const showFields = () => {
