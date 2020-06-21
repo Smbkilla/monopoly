@@ -64,11 +64,11 @@ export default function NavBar(props) {
           </ListItem>
           <ListItem button key="New game" onClick={onNavigationButtonClick(destination.NEW_GAME)}>
             <ListItemIcon><AddToQueueIcon/></ListItemIcon>
-            <ListItemText primary={"New gameConstants"}/>
+            <ListItemText primary={"New game"}/>
           </ListItem>
           <ListItem button key="Current game" onClick={onNavigationButtonClick(destination.CURRENT_GAME)}>
             <ListItemIcon><SportsEsportsIcon/></ListItemIcon>
-            <ListItemText primary={"Current gameConstants"}/>
+            <ListItemText primary={"Current game"}/>
           </ListItem>
         </List>
       </Drawer>

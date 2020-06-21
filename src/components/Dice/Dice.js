@@ -26,7 +26,7 @@ function Dice() {
 
   return (
     <Grid container direction="column" justify="center" alignContent="center">
-      <Grid container direction="row" justify="center" alignContent="center" spacing={1}>
+      <Grid container direction="row" justify="center" alignContent="center" spacing={2}>
         <Grid item xs={5}>
           <Switch condition={numbers[0]}>
             <Case value={1}>
