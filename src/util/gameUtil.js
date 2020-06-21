@@ -64,8 +64,8 @@ export const getNewGame = () => ({
     },
     [properties.NORTH_POLE_RESEARCH_STATION.NAME]: {
       players: [],
-      numberOfHouses: 2,
-      numberOfHotels: 1,
+      numberOfHouses: 0,
+      numberOfHotels: 0,
       owner: 1,
     },
     [properties.FORTUNE_COOKIE_1.NAME]: {

@@ -23,9 +23,9 @@ const Board = () => {
 
   const [dialogs, setDialogs] = useState({
     snackBar: {
-      open: true,
-      severity: "error",
-      message: "This be the message, and I test long one to se how it works?",
+      open: false,
+      severity: "",
+      message: "",
     },
   });
 
