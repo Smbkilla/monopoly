@@ -1,4 +1,5 @@
-import React, { useState, useContext } from "react";
+import React, {useContext } from "react";
+
 import {
   Dialog,
   DialogTitle,
@@ -7,7 +8,9 @@ import {
   DialogActions,
   Button,
 } from "@material-ui/core";
+
 import { GameContext } from "../../App";
+import {useCanBuyHotel, useCanBuyHouse} from "../../hooks/canBuyRealEstate";
 
 const BuyDialog = ({
   open,
@@ -18,6 +21,8 @@ const BuyDialog = ({
   owner = false,
 }) => {
   const { game, setGame } = useContext(GameContext);
+  const canBuyHouse = useCanBuyHouse();
+  const canBuyHotel = useCanBuyHotel();
 
   const handleClose = () => {
     const newCurrentPlayer = game.currentPlayer + 1;
@@ -99,10 +104,10 @@ const BuyDialog = ({
       if (owner) {
         return (
           <>
-            <Button onClick={buyHouse} color="primary">
+            <Button onClick={buyHouse} color="primary" disabled={!canBuyHouse}>
               Buy house
             </Button>
-            <Button onClick={buyHotel} color="primary">
+            <Button onClick={buyHotel} color="primary" disabled={!canBuyHotel}>
               Buy hotel
             </Button>
           </>
