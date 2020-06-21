@@ -44,7 +44,7 @@ const PayDialog = ({
   const payField = () => {
     game.players[game.currentPlayer].cash -= calculateAmount();
     game.players[fieldInfo.owner].cash += calculateAmount();
-    setGame(game);
+    // setGame(game);
     handleClose();
   };
 
