@@ -63,8 +63,6 @@ export function movePlayerToNewField(steps, game) {
 
   return {
     ...game,
-    currentPlayer: currentPlayerDiff >= 0 ? currentPlayerDiff : newCurrentPlayer,
-    playerBefore: currentPlayer.index,
     fields: {
       ...game.fields,
       [playerFieldName]: {

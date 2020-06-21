@@ -15,7 +15,7 @@ export function getDialog(
   property = properties.START,
   showDialog,
   setShowDialog,
-  playerBefore
+  currentPlayer
 ) {
   switch (property.TYPE) {
     case fieldType.FORTUNE_COOKIE:
@@ -58,8 +58,8 @@ export function getDialog(
       // check owner and current player
       if (field.owner !== null) {
         console.log("Owner exists", field.owner)
-        if (playerBefore === field.owner) {
-          console.log("Player is owner", playerBefore, field.owner);
+        if (currentPlayer === field.owner) {
+          console.log("Player is owner", currentPlayer, field.owner);
           console.log("BuyDialog");
           return (
             <BuyDialog
@@ -72,7 +72,7 @@ export function getDialog(
             />
           );
         }
-        console.log("Player is NOT owner", playerBefore, field.owner);
+        console.log("Player is NOT owner", currentPlayer, field.owner);
         console.log("PayDialog");
         return <PayDialog open={showDialog} setOpen={setShowDialog} fieldInfo={field} propertyInfo={property} />;
       }

@@ -16,7 +16,7 @@ import { getDialog } from "../../util/boardUtil";
 
 import StartDialog from "../Dialog/StartDialog";
 
-const DialogContext = createContext(null);
+export const DialogContext = createContext(null);
 
 const Board = () => {
   const {game} = useContext(GameContext);
@@ -25,39 +25,49 @@ const Board = () => {
   
   const [dialog, setDialog] = useState(null);
 
+  // const {dialogContext} = useContext(DialogContext);
+
   const [dialogs, setDialogs] = useState({
-    snackBar: {
-      open: true,
-      severity: "error",
-      message: "This be the message, and I test long one to se how it works?",
-    },
+    showDialog: true
+    // snackBar: {
+    //   open: true,
+    //   severity: "error",
+    //   message: "This be the message, and I test long one to se how it works?",
+    // },
   });
 
   const onCloseSnackBar = () => {
-    setDialogs({
-      ...dialogs,
-      snackBar: {
-        ...dialogs.snackBar,
-        open: false,
-      },
-    })
+    // setDialogs({
+    //   ...dialogs,
+    //   snackBar: {
+    //     ...dialogs.snackBar,
+    //     open: false,
+    //   },
+    // })
   };
 
   const helpDialog = (fieldName) => {
-    const field = _.find(game.fields, field => _.findIndex(field.players, playerIndex => playerIndex === game.playerBefore) !== -1);
+    const field = _.find(game.fields, field => _.findIndex(field.players, playerIndex => playerIndex === game.currentPlayer) !== -1);
     const property = getPropertyByName(fieldName);
-    setDialog(getDialog(field, property, true, setShowDialog, game.playerBefore));
+    setDialog(getDialog(field, property, true, setShowDialog, game.currentPlayer));
     setShowDialog(true);
     console.log("Field", field);
     console.log("Property", property);
   }
 
   useEffect(() => {
-    console.log("Use effect board", game)
-    const fieldName = _.findKey(game.fields, field => 
-      _.findIndex(field.players, playerIndex => playerIndex === game.playerBefore) !== -1);
-    helpDialog(fieldName);
-  }, [game]);
+    console.log("Use effect board", game);
+    if(dialogs.showDialog) {
+      const fieldName = _.findKey(game.fields, field => 
+        _.findIndex(field.players, playerIndex => playerIndex === game.currentPlayer) !== -1);
+      helpDialog(fieldName);
+
+      setDialogs({
+        ...dialogs,
+        showDialog: false
+      });
+    }
+  }, [dialogs]);
 
   return (
     <DialogContext.Provider value={{dialogs, setDialogs}}>
