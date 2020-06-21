@@ -4,12 +4,24 @@ import {Button, Grid} from "@material-ui/core";
 import Switch, {Case, Default} from "react-switch-case";
 
 import {GameContext} from "../../App";
+import {DialogContext} from "../Board/Board";
 import {DiceOneIcon, DiceTwoIcon, DiceThreeIcon, DiceFourIcon, DiceFiveIcon, DiceSixIcon} from "../Icon/diceIcon";
 import {movePlayerToNewField} from "../../util/playerUtil";
+
+import useGetCurrentPlayerFieldName from "../../hooks/useGetCurrentPlayerFieldName";
+import { getPropertyByName } from "../../util/propertyUtil";
+import fieldType from "../../constants/fieldType";
+import { getDialog } from "../../util/boardUtil";
+import _ from "lodash";
 
 function Dice() {
   const [numbers, setNumbers] = useState([6, 6]);
   const {game, setGame} = useContext(GameContext);
+  const {dialogs, setDialogs} = useContext(DialogContext);
+
+  const [showDialog, setShowDialog] = useState(false);
+  
+  const [dialog, setDialog] = useState(null);
 
   const getRandomInt = max => {
     return Math.floor(Math.random() * Math.floor(max));
@@ -22,11 +34,18 @@ function Dice() {
     setNumbers([firstNumber, secondNumber]);
 
     setGame(movePlayerToNewField(firstNumber + secondNumber, game));
+    setDialogs({...dialogs,
+      showDialog: true
+    });
+
+    // const fieldName = _.findKey(game.fields, field => 
+    //   _.findIndex(field.players, playerIndex => playerIndex === game.currentPlayer) !== -1);
+    // helpDialog(fieldName);
   };
 
   return (
     <Grid container direction="column" justify="center" alignContent="center">
-      <Grid container direction="row" justify="center" alignContent="center" spacing={1}>
+      <Grid container direction="row" justify="center" alignContent="center" spacing={2}>
         <Grid item xs={5}>
           <Switch condition={numbers[0]}>
             <Case value={1}>

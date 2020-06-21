@@ -13,9 +13,18 @@ const ParkingDialog = ({ open, setOpen }) => {
   const { game, setGame } = useContext(GameContext);
 
   const handleClose = () => {
-    game.players[game.playerBefore].cash += game.parkingSpaceReward;
+    game.players[game.currentPlayer].cash += game.parkingSpaceReward;
     game.parkingSpaceReward = 0;
     setGame(game);
+
+    const newCurrentPlayer = game.currentPlayer + 1;
+    const currentPlayerDiff = newCurrentPlayer - game.players.length;
+
+    setGame({
+      ...game,
+      currentPlayer: currentPlayerDiff >= 0 ? currentPlayerDiff : newCurrentPlayer
+    });
+
     setOpen(false);
   };
 

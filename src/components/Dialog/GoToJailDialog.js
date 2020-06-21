@@ -29,11 +29,20 @@ const GoToJailDialog = ({ open, setOpen }) => {
         },
       });
     }
+
+    const newCurrentPlayer = game.currentPlayer + 1;
+    const currentPlayerDiff = newCurrentPlayer - game.players.length;
+
+    setGame({
+      ...game,
+      currentPlayer: currentPlayerDiff >= 0 ? currentPlayerDiff : newCurrentPlayer
+    });
+
     setOpen(false);
   };
 
   const handlePayment = () => {
-    game.players[game.playerBefore].cash -= 200;
+    game.players[game.currentPlayer].cash -= 200;
     game.parkingSpaceReward += 200;
     setGame(game);
     handleClose(true);

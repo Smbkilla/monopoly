@@ -20,6 +20,18 @@ const BuyDialog = ({
   const { game, setGame } = useContext(GameContext);
 
   const handleClose = () => {
+    const newCurrentPlayer = game.currentPlayer + 1;
+    const currentPlayerDiff = newCurrentPlayer - game.players.length;
+
+    console.log(game.currentPlayer);
+
+    setGame({
+      ...game,
+      currentPlayer: currentPlayerDiff >= 0 ? currentPlayerDiff : newCurrentPlayer
+    });
+
+    console.log(game.currentPlayer);
+
     setOpen(false);
   };
 
@@ -31,9 +43,10 @@ const BuyDialog = ({
 
   const buyField = () => {
     // money goes to parking field and player becomes an owner
-    fieldInfo.owner = game.playerBefore;
+    fieldInfo.owner = game.currentPlayer;
     game.parkingSpaceReward += propertyInfo.PRICE.PROPERTY;
-    game.players[game.playerBefore].cash -= propertyInfo.PRICE.PROPERTY;
+    game.players[game.currentPlayer].cash -= propertyInfo.PRICE.PROPERTY;
+    game.players[game.currentPlayer].properties.push(propertyInfo);
     console.log("Buy field");
     updateGameContext();
   };
@@ -41,7 +54,7 @@ const BuyDialog = ({
   const buyHouse = () => {
     fieldInfo.numberOfHouses++;
     game.parkingSpaceReward += propertyInfo.PRICE.HOUSE;
-    game.players[game.playerBefore].cash -= propertyInfo.PRICE.HOUSE;
+    game.players[game.currentPlayer].cash -= propertyInfo.PRICE.HOUSE;
     console.log("Buy house");
     updateGameContext();
   };
@@ -49,7 +62,7 @@ const BuyDialog = ({
   const buyHotel = () => {
     fieldInfo.numberOfHotels++;
     game.parkingSpaceReward += propertyInfo.PRICE.HOTEL;
-    game.players[game.playerBefore].cash -= propertyInfo.PRICE.HOTEL;
+    game.players[game.currentPlayer].cash -= propertyInfo.PRICE.HOTEL;
     console.log("Buy hotel");
     updateGameContext();
   };
