@@ -34,6 +34,7 @@ const BuyDialog = ({
     fieldInfo.owner = game.playerBefore;
     game.parkingSpaceReward += propertyInfo.PRICE.PROPERTY;
     game.players[game.playerBefore].cash -= propertyInfo.PRICE.PROPERTY;
+    game.players[game.playerBefore].properties.push(propertyInfo);
     console.log("Buy field");
     updateGameContext();
   };
