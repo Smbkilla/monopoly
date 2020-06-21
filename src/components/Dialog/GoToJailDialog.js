@@ -14,11 +14,16 @@ const GoToJailDialog = ({ open, setOpen }) => {
   const { game, setGame } = useContext(GameContext);
 
   const handleClose = (flag) => {
+    const newCurrentPlayer = game.currentPlayer + 1;
+    const currentPlayerDiff = newCurrentPlayer - game.players.length;
+
     if (!flag) {
       game.fields.jail.players.push(game.currentPlayer);
+
       const goToJailFields = game.fields.goToJail.players.filter(
         (value) => value !== game.currentPlayer
       );
+
       setGame({
         ...game,
         fields: {
@@ -28,19 +33,18 @@ const GoToJailDialog = ({ open, setOpen }) => {
             players: goToJailFields,
           },
         },
+        currentPlayer: currentPlayerDiff >= 0 ? currentPlayerDiff : newCurrentPlayer,
         players: setPlayerJailMoves(game, game.currentPlayer, 3).players
       });
       // setGame(setPlayerJailMoves(game, game.currentPlayer, 3));
+    } else {
+
+      setGame({
+        ...game,
+        currentPlayer: currentPlayerDiff >= 0 ? currentPlayerDiff : newCurrentPlayer,
+        players: setPlayerJailMoves(game, game.currentPlayer, 3).players
+      });
     }
-
-    const newCurrentPlayer = game.currentPlayer + 1;
-    const currentPlayerDiff = newCurrentPlayer - game.players.length;
-
-    setGame({
-      ...game,
-      currentPlayer: currentPlayerDiff >= 0 ? currentPlayerDiff : newCurrentPlayer,
-      players: setPlayerJailMoves(game, game.currentPlayer, 3).players
-    });
 
     setOpen(false);
   };
