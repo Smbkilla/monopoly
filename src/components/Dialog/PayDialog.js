@@ -8,7 +8,7 @@ import {
   Button,
 } from "@material-ui/core";
 import { GameContext } from "../../App";
-import useGetCurrentPlayer from "../../hooks/useGetCurrentPlayer";
+import useGetOwnerPlayer from "../../hooks/useGetOwnerPlayer";
 
 const PayDialog = ({
   open,
@@ -19,7 +19,7 @@ const PayDialog = ({
 }) => {
 
   const {game, setGame} = useContext(GameContext);
-  const owner = useGetCurrentPlayer();
+  const owner = useGetOwnerPlayer(fieldInfo.owner);
 
   const handleClose = () => {
     const newCurrentPlayer = game.currentPlayer + 1;
