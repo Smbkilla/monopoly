@@ -28,14 +28,10 @@ const BuyDialog = ({
     const newCurrentPlayer = game.currentPlayer + 1;
     const currentPlayerDiff = newCurrentPlayer - game.players.length;
 
-    console.log(game.currentPlayer);
-
     setGame({
       ...game,
       currentPlayer: currentPlayerDiff >= 0 ? currentPlayerDiff : newCurrentPlayer
     });
-
-    console.log(game.currentPlayer);
 
     setOpen(false);
   };
@@ -52,7 +48,6 @@ const BuyDialog = ({
     game.parkingSpaceReward += propertyInfo.PRICE.PROPERTY;
     game.players[game.currentPlayer].cash -= propertyInfo.PRICE.PROPERTY;
     game.players[game.currentPlayer].properties.push(propertyInfo);
-    console.log("Buy field");
     updateGameContext();
   };
 
@@ -60,7 +55,6 @@ const BuyDialog = ({
     fieldInfo.numberOfHouses++;
     game.parkingSpaceReward += propertyInfo.PRICE.HOUSE;
     game.players[game.currentPlayer].cash -= propertyInfo.PRICE.HOUSE;
-    console.log("Buy house");
     updateGameContext();
   };
 
@@ -68,7 +62,6 @@ const BuyDialog = ({
     fieldInfo.numberOfHotels++;
     game.parkingSpaceReward += propertyInfo.PRICE.HOTEL;
     game.players[game.currentPlayer].cash -= propertyInfo.PRICE.HOTEL;
-    console.log("Buy hotel");
     updateGameContext();
   };
 

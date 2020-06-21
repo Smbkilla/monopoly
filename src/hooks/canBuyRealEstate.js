@@ -21,8 +21,6 @@ export function useCanBuyHouse() {
     }
   });
 
-  console.log(properties, requiredProperties);
-
   requiredProperties.forEach(propertyName => {
       canBuy = canBuy && _.findIndex(properties, ownedProperty => ownedProperty.NAME === propertyName) !== -1;
     }
@@ -34,8 +32,6 @@ export function useCanBuyHouse() {
 export function useCanBuyHotel() {
   const {game: {fields}} = useContext(GameContext);
   const currentField = fields[useGetCurrentPlayerFieldName()];
-
-  console.log(currentField);
 
   return currentField.numberOfHouses === 4;
 }

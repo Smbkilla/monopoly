@@ -44,12 +44,9 @@ const Board = () => {
     const property = getPropertyByName(fieldName);
     setDialog(getDialog(field, property, true, setShowDialog, game.currentPlayer, dialogs.jailVisit));
     setShowDialog(true);
-    console.log("Field", field);
-    console.log("Property", property);
   };
 
   useEffect(() => {
-    console.log("Use effect board", game);
     if(dialogs.showDialog) {
       const fieldName = _.findKey(game.fields, field =>
         _.findIndex(field.players, playerIndex => playerIndex === game.currentPlayer) !== -1);

@@ -22,7 +22,6 @@ export function getDialog(
 ) {
   switch (property.TYPE) {
     case fieldType.FORTUNE_COOKIE:
-      console.log("FieldInfoDialog");
       return (
         <FieldInfoDialog
           open={showDialog}
@@ -32,7 +31,6 @@ export function getDialog(
         />
       );
     case fieldType.ROOMATE_AGREEMENT:
-      console.log("FieldInfoDialog");
       return (
         <FieldInfoDialog
           open={showDialog}
@@ -42,28 +40,21 @@ export function getDialog(
         />
       );
     case fieldType.START:
-      console.log("StartDialog");
       return <StartDialog open={showDialog} setOpen={setShowDialog} />;
     case fieldType.JAIL:
-      console.log("JailDialogVisit");
       return (
         <JailDialog open={showDialog} setOpen={setShowDialog} visit={visit} />
       );
     case fieldType.GO_TO_JAIL:
-      console.log("JailDialog");
       return (
         <GoToJailDialog open={showDialog} setOpen={setShowDialog} />
       );
     case fieldType.CHILL:
-      console.log("ParkingDialog");
       return <ParkingDialog open={showDialog} setOpen={setShowDialog} />;
     default:
       // check owner and current player
       if (field.owner !== null) {
-        console.log("Owner exists", field.owner)
         if (currentPlayer === field.owner) {
-          console.log("Player is owner", currentPlayer, field.owner);
-          console.log("BuyDialog");
           return (
             <BuyDialog
               open={showDialog}
@@ -75,12 +66,8 @@ export function getDialog(
             />
           );
         }
-        console.log("Player is NOT owner", currentPlayer, field.owner);
-        console.log("PayDialog");
         return <PayDialog open={showDialog} setOpen={setShowDialog} fieldInfo={field} propertyInfo={property} />;
       }
-      console.log("There is no owner", field.owner)
-      console.log("BuyDialog");
       return (
         <BuyDialog
           open={showDialog}
