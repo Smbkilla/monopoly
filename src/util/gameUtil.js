@@ -14,18 +14,13 @@ export const getNewGamePlayers = (players = []) => {
 export const getNewGame = () => ({
   players: [
     {name: "Penny", color: "Blue", index: 0, cash: gameConstants.START_CASH, properties: [properties.SHELDON_OFFICE], jailMoves: 0},
-    {name: "Howard", color: "Blue", index: 1, cash: gameConstants.START_CASH, properties: [], jailMoves: 0},
-    {name: "Howard", color: "Blue", index: 2, cash: gameConstants.START_CASH, properties: [], jailMoves: 0},
-    {name: "Howard", color: "Blue", index: 3, cash: gameConstants.START_CASH, properties: [], jailMoves: 0},
-    {name: "Howard", color: "Blue", index: 4, cash: gameConstants.START_CASH, properties: [], jailMoves: 0},
-    {name: "Howard", color: "Blue", index: 5, cash: gameConstants.START_CASH, properties: [], jailMoves: 0},
-    {name: "Howard", color: "Blue", index: 6, cash: gameConstants.START_CASH, properties: [], jailMoves: 3},
+    {name: "Howard", color: "Blue", index: 1, cash: gameConstants.START_CASH, properties: [], jailMoves: 3},
   ],
   currentPlayer: 0,
   parkingSpaceReward: 0,
   fields: {
     [properties.START.NAME]: {
-      players: [0, 1, 2, 3, 4, 5],
+      players: [0],
       numberOfHouses: 0,
       numberOfHotels: 0,
       owner: null,
@@ -85,7 +80,7 @@ export const getNewGame = () => ({
       owner: null,
     },
     [properties.JAIL.NAME]: {
-      players: [6],
+      players: [1],
       numberOfHouses: 0,
       numberOfHotels: 0,
       owner: null,

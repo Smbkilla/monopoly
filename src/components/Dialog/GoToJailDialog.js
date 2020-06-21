@@ -28,8 +28,9 @@ const GoToJailDialog = ({ open, setOpen }) => {
             players: goToJailFields,
           },
         },
+        players: setPlayerJailMoves(game, game.currentPlayer, 3).players
       });
-      setGame(setPlayerJailMoves(game, game.currentPlayer, 3));
+      // setGame(setPlayerJailMoves(game, game.currentPlayer, 3));
     }
 
     const newCurrentPlayer = game.currentPlayer + 1;
@@ -37,7 +38,8 @@ const GoToJailDialog = ({ open, setOpen }) => {
 
     setGame({
       ...game,
-      currentPlayer: currentPlayerDiff >= 0 ? currentPlayerDiff : newCurrentPlayer
+      currentPlayer: currentPlayerDiff >= 0 ? currentPlayerDiff : newCurrentPlayer,
+      players: setPlayerJailMoves(game, game.currentPlayer, 3).players
     });
 
     setOpen(false);

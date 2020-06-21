@@ -41,10 +41,9 @@ function Dice() {
 
     let visit = false;
 
+    setNumbers([firstNumber, secondNumber]);
+
     if(player.jailMoves <= 0) {
-
-      setNumbers([firstNumber, secondNumber]);
-
       setGame(movePlayerToNewField(firstNumber + secondNumber, game));
       visit = true;
     } else {
