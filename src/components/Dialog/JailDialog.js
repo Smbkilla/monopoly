@@ -8,9 +8,12 @@ import {
   Button,
 } from "@material-ui/core";
 import { GameContext } from "../../App";
+import useGetCurrentPlayer from "../../hooks/useGetCurrentPlayer";
 
 const JailDialog = ({ open, setOpen, visit = false }) => {
   const { game, setGame } = useContext(GameContext);
+
+  const player = useGetCurrentPlayer();
 
   const handleClose = () => {
     const newCurrentPlayer = game.currentPlayer + 1;
@@ -37,7 +40,7 @@ const JailDialog = ({ open, setOpen, visit = false }) => {
     }
     return (
       <DialogContentText>
-        You're a convict, pay 200 to get out.
+        You are in jail. You can get out by getting two equal numbers or wait {player.jailMoves} turns.
       </DialogContentText>
     );
   };

@@ -7,13 +7,14 @@ export const getNewGamePlayers = (players = []) => {
     index,
     cash: gameConstants.START_CASH,
     properties: [],
+    jailMoves: 0
   }));
 };
 
 export const getNewGame = () => ({
   players: [
-    {name: "Penny", color: "Blue", index: 0, cash: gameConstants.START_CASH, properties: [properties.SHELDON_OFFICE]},
-    {name: "Howard", color: "Blue", index: 1, cash: gameConstants.START_CASH, properties: []},
+    {name: "Penny", color: "Blue", index: 0, cash: gameConstants.START_CASH, properties: [properties.SHELDON_OFFICE], jailMoves: 0},
+    {name: "Howard", color: "Blue", index: 1, cash: gameConstants.START_CASH, properties: [], jailMoves: 0},
   ],
   currentPlayer: 0,
   parkingSpaceReward: 0,

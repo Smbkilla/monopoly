@@ -2,6 +2,26 @@ import _ from "lodash";
 import {getPropertyByIndex, getPropertyByName} from "./propertyUtil";
 import gameConstants from "../constants/game";
 
+export function setPlayerJailMoves(game, playerIndex, moves) {
+  const {players} = game;
+
+  const newPlayers = players.map(player => {
+    if (player.index === playerIndex) {
+      return {
+        ...player,
+        jailMoves: moves
+      };
+    } else {
+      return player;
+    }
+  });
+
+  return {
+    ...game,
+    players: newPlayers,
+  };
+}
+
 export function addPlayerFunds(game, playerIndex, amount) {
   const {players} = game;
 

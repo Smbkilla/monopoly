@@ -8,15 +8,14 @@ import {
   Button,
 } from "@material-ui/core";
 import { GameContext } from "../../App";
+import {setPlayerJailMoves} from "../../util/playerUtil";
 
 const GoToJailDialog = ({ open, setOpen }) => {
   const { game, setGame } = useContext(GameContext);
 
   const handleClose = (flag) => {
     if (!flag) {
-      game.fields.jail.players.push(game.currentPlayer);
-      game.fields.goToJail.players.filter(player => player !== game.currentPlayer);
-      setGame(game);
+      setGame(setPlayerJailMoves(game, game.currentPlayer, 3));
     }
 
     const newCurrentPlayer = game.currentPlayer + 1;
