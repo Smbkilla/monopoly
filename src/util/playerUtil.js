@@ -1,10 +1,10 @@
 import _ from "lodash";
-import { getPropertyByIndex, getPropertyByName } from "./propertyUtil";
+import {getPropertyByIndex, getPropertyByName} from "./propertyUtil";
 import gameConstants from "../constants/game";
 
 // add game funds
 export function addGameFunds(game, amount) {
-  const { parkingSpaceReward } = game;
+  const {parkingSpaceReward} = game;
 
   const newParkingSpaceReward = parkingSpaceReward + amount;
 
@@ -16,11 +16,11 @@ export function addGameFunds(game, amount) {
 
 // remove game funds
 export function removeGameFunds(game, amount) {
-  const { parkingSpaceReward } = game;
+  const {parkingSpaceReward} = game;
 
   if (amount) {
     const newParkingSpaceReward = parkingSpaceReward - amount;
-    if(newParkingSpaceReward > 0){
+    if (newParkingSpaceReward > 0) {
       return {
         ...game,
         parkingSpaceReward: newParkingSpaceReward,
@@ -39,57 +39,94 @@ export function removeGameFunds(game, amount) {
 
 // add owner
 export function addOwner(game, playerIndex, propertyName) {
-  const { fields } = game;
+  const {fields, players} = game;
+  const newProperty = getPropertyByName(propertyName);
 
-  let newField = fields[propertyName];
-
-  newField.owner = playerIndex;
+  const newPlayers = players.map(player => {
+    if (player.index === playerIndex) {
+      return {
+        ...player,
+        cash: player.cash - newProperty.PRICE.PROPERTY,
+        properties: [...player.properties, newProperty]
+      };
+    } else {
+      return player;
+    }
+  });
 
   return {
     ...game,
     fields: {
       ...game.fields,
-      [propertyName]: newField,
+      [propertyName]: {
+        ...fields[propertyName],
+        owner: playerIndex,
+      },
     },
+    players: newPlayers,
   };
 }
 
 // add house
-export function addHouse(game, propertyName) {
-  const { fields } = game;
+export function addHouse(game, playerIndex, propertyName) {
+  const {fields, players} = game;
+  const newProperty = getPropertyByName(propertyName);
 
-  let newField = fields[propertyName];
-
-  newField.numberOfHouses++;
+  const newPlayers = players.map(player => {
+    if (player.index === playerIndex) {
+      return {
+        ...player,
+        cash: player.cash - newProperty.PRICE.HOUSE,
+      };
+    } else {
+      return player;
+    }
+  });
 
   return {
     ...game,
     fields: {
       ...game.fields,
-      [propertyName]: newField,
+      [propertyName]: {
+        ...fields[propertyName],
+        numberOfHouses: fields[propertyName].numberOfHouses + 1,
+      },
     },
+    players: newPlayers,
   };
 }
 
 // add hotel
-export function addHotel(game, propertyName) {
-  const { fields } = game;
+export function addHotel(game, playerIndex, propertyName) {
+  const {fields, players} = game;
+  const newProperty = getPropertyByName(propertyName);
 
-  let newField = fields[propertyName];
-
-  newField.numberOfHotels++;
+  const newPlayers = players.map(player => {
+    if (player.index === playerIndex) {
+      return {
+        ...player,
+        cash: player.cash - newProperty.PRICE.HOTEL,
+      };
+    } else {
+      return player;
+    }
+  });
 
   return {
     ...game,
     fields: {
       ...game.fields,
-      [propertyName]: newField,
+      [propertyName]: {
+        ...fields[propertyName],
+        numberOfHotels: fields[propertyName].numberOfHotels + 1,
+      },
     },
+    players: newPlayers,
   };
 }
 
 export function payAnotherPlayer(game, purchaserIndex, ownerIndex, amount) {
-  const { players } = game;
+  const {players} = game;
 
   const newPlayers = players.map((player) => {
     if (player.index === purchaserIndex) {
@@ -134,7 +171,7 @@ export function setPlayerJailMoves(game, playerIndex, moves) {
 }
 
 export function addPlayerFunds(game, playerIndex, amount) {
-  const { players } = game;
+  const {players} = game;
 
   const newPlayers = players.map((player) => {
     if (player.index === playerIndex) {
@@ -154,7 +191,7 @@ export function addPlayerFunds(game, playerIndex, amount) {
 }
 
 export function removePlayerFunds(game, playerIndex, amount) {
-  const { players } = game;
+  const {players} = game;
 
   const newPlayers = players.map((player) => {
     if (player.index === playerIndex) {
@@ -174,7 +211,7 @@ export function removePlayerFunds(game, playerIndex, amount) {
 }
 
 export function movePlayerToNewField(steps, game) {
-  const { players, fields } = game;
+  const {players, fields} = game;
 
   const currentPlayer = players.find(
     (player) => player.index === game.currentPlayer
@@ -215,12 +252,12 @@ export function movePlayerToNewField(steps, game) {
     },
     players: passedStart
       ? addPlayerFunds(game, game.currentPlayer, gameConstants.START_BONUS)
-          .players
+        .players
       : game.players,
   };
 }
 
-export function getNextFieldName(steps, game){
+export function getNextFieldName(steps, game) {
   const {currentPlayer, fields} = game;
   const playerFieldName = _.findKey(fields, field => _.findIndex(field.players, playerIndex => playerIndex === currentPlayer) !== -1);
   const newFieldIndex = getPropertyByName(playerFieldName).INDEX + steps;

@@ -1,4 +1,4 @@
-import React, {useContext } from "react";
+import React, {useContext} from "react";
 
 import {
   Dialog,
@@ -9,34 +9,33 @@ import {
   Button,
 } from "@material-ui/core";
 
-import { GameContext } from "../../App";
-import { removePlayerFunds, addOwner, addHouse, addHotel, addGameFunds } from "../../util/playerUtil";
+import {GameContext} from "../../App";
+import {removePlayerFunds, addOwner, addHouse, addHotel, addGameFunds} from "../../util/playerUtil";
 import {useCanBuyHotel, useCanBuyHouse} from "../../hooks/canBuyRealEstate";
 
 const BuyDialog = ({
-  open,
-  setOpen,
-  fieldInfo,
-  propertyInfo,
-  property = false,
-  owner = false,
-}) => {
-  const { game, setGame } = useContext(GameContext);
+                     open,
+                     setOpen,
+                     fieldInfo,
+                     propertyInfo,
+                     property = false,
+                     owner = false,
+                   }) => {
+  const {game, setGame} = useContext(GameContext);
   const canBuyHouse = useCanBuyHouse();
   const canBuyHotel = useCanBuyHotel();
 
   const handleClose = (data) => {
     const newCurrentPlayer = game.currentPlayer + 1;
     const currentPlayerDiff = newCurrentPlayer - game.players.length;
-    if(data){
+    if (data) {
       setGame({
         ...game,
         players: data.players,
         fields: data.fields,
         currentPlayer: currentPlayerDiff >= 0 ? currentPlayerDiff : newCurrentPlayer
       });
-    }
-    else {
+    } else {
       setGame({
         ...game,
         currentPlayer: currentPlayerDiff >= 0 ? currentPlayerDiff : newCurrentPlayer
@@ -46,25 +45,15 @@ const BuyDialog = ({
   };
 
   const buyField = () => {
-    console.log(game)
-    handleClose({
-      fields: addOwner(game, game.currentPlayer, propertyInfo.NAME).fields,
-      players: removePlayerFunds(game, game.currentPlayer, propertyInfo.PRICE.PROPERTY).players,
-    });
+    handleClose(addOwner(game, game.currentPlayer, propertyInfo.NAME));
   };
 
   const buyHouse = () => {
-    handleClose({
-      fields: addHouse(game, propertyInfo.NAME).fields,
-      players: removePlayerFunds(game, game.currentPlayer, propertyInfo.PRICE.HOUSE).players,
-    });
+    handleClose(addHouse(game, game.currentPlayer, propertyInfo.NAME));
   };
 
   const buyHotel = () => {
-    handleClose({
-      fields: addHotel(game, propertyInfo.NAME).fields,
-      players: removePlayerFunds(game, game.currentPlayer, propertyInfo.PRICE.HOTEL).players,
-    });
+    handleClose(addHotel(game, game.currentPlayer, propertyInfo.NAME));
   };
 
   const showFields = () => {
@@ -122,12 +111,12 @@ const BuyDialog = ({
   };
 
   return (
-    <Dialog open={open} onClose={handleClose}>
+    <Dialog open={open} onClose={() => handleClose(null)}>
       <DialogTitle>{propertyInfo.TITLE}</DialogTitle>
       <DialogContent>{showFields()}</DialogContent>
       <DialogActions>
         {showButtons()}
-        <Button onClick={handleClose} color="primary">
+        <Button onClick={() => handleClose(null)} color="primary">
           Cancel
         </Button>
       </DialogActions>
