@@ -32,7 +32,7 @@ import useGetFieldPlayers from "../../hooks/useGetFieldPlayers";
 import useGetFieldRealEstate from "../../hooks/useGetFieldRealEstate";
 
 import "./Field.css";
-
+import {heIL} from "@material-ui/core/locale";
 
 const iconStyle = {
   width: "100%",
@@ -137,11 +137,12 @@ function PropertyFieldContent({property}) {
 
   return (
     <React.Fragment>
-      <CardHeader style={{backgroundColor: property.COLOR}} title={getRealEstate()} disableTypography={true}/>
-      <CardContent className="cardContent">
+      <CardHeader style={{backgroundColor: property.COLOR, height: "40px", padding: "0"}} title={getRealEstate()}
+                  disableTypography={true}/>
+      <CardContent className="cardContent" style={{height: "80px", padding: "0"}}>
         <Grid container direction="column" alignItems="center">
           <Grid item xs={5} container justify="center">
-            <Typography className="title" variant="button">
+            <Typography className="title" variant="button" style={{fontSize: "12px", fontWeight: "600"}}>
               {property.TITLE}
             </Typography>
           </Grid>
@@ -153,8 +154,8 @@ function PropertyFieldContent({property}) {
           </Grid>
         </Grid>
       </CardContent>
-      <CardActions className="cardActions">
-        <Typography className="price" variant="button" component="h6">
+      <CardActions className="cardActions" style={{height: "40px", padding: "0"}}>
+        <Typography className="price" variant="button" component="h6" style={{fontSize: "12px", fontWeight: "600"}}>
           {property.PRICE.PROPERTY}
         </Typography>
       </CardActions>
@@ -168,7 +169,7 @@ function IconFieldContent({property, icon}) {
       <CardContent className="cardContent">
         <Grid container direction="column" alignItems="center">
           <Grid item xs={6} container justify="center">
-            <Typography className="title" variant="button" component="h6">
+            <Typography className="title" variant="button" component="h6" style={{fontSize: "12px", fontWeight: "600"}}>
               {property.TITLE}
             </Typography>
           </Grid>
@@ -177,8 +178,8 @@ function IconFieldContent({property, icon}) {
           </Grid>
         </Grid>
       </CardContent>
-      <CardActions className="cardActions">
-        <Typography className="title" variant="button" component="h6">
+      <CardActions className="cardActions" style={{height: "30px", padding: "0"}}>
+        <Typography className="title" variant="button" component="h6" style={{fontSize: "12px", fontWeight: "600"}}>
           {property.PRICE ? property.PRICE.PROPERTY : ""}
         </Typography>
       </CardActions>
