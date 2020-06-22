@@ -1,4 +1,5 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
+
 import {
   Dialog,
   DialogTitle,
@@ -7,39 +8,46 @@ import {
   DialogActions,
   Button,
 } from "@material-ui/core";
+
 import { GameContext } from "../../App";
+import useGetCurrentPlayer from "../../hooks/useGetCurrentPlayer";
 
 const JailDialog = ({ open, setOpen, visit = false }) => {
   const { game, setGame } = useContext(GameContext);
 
-  const handleClose = () => {
-    const newCurrentPlayer = game.currentPlayer + 1;
-    const currentPlayerDiff = newCurrentPlayer - game.players.length;
+  const player = useGetCurrentPlayer();
 
-    setGame({
-      ...game,
-      currentPlayer: currentPlayerDiff >= 0 ? currentPlayerDiff : newCurrentPlayer
-    });
+  const handleClose = () => {
+    if(visit || player.jailMoves > 0) {
+      const newCurrentPlayer = game.currentPlayer + 1;
+      const currentPlayerDiff = newCurrentPlayer - game.players.length;
+
+      setGame({
+        ...game,
+        currentPlayer: currentPlayerDiff >= 0 ? currentPlayerDiff : newCurrentPlayer
+      });
+    }
 
     setOpen(false);
-  };
-
-  const handlePayment = () => {
-    game.players[game.currentPlayer].cash -= 200;
-    game.parkingSpaceReward += 200;
-    setGame(game);
-    handleClose();
   };
 
   const showContent = () => {
     if (visit) {
       return <DialogContentText>You're visiting jail</DialogContentText>;
     }
-    return (
-      <DialogContentText>
-        You're a convict, pay 200 to get out.
-      </DialogContentText>
-    );
+    if(player.jailMoves > 0) {
+      return (
+        <DialogContentText>
+          You are in jail. You can get out by getting two equal numbers or wait {player.jailMoves} turns.
+        </DialogContentText>
+      );
+    } else {
+      return (
+        <DialogContentText>
+          You got out of jail. Please throw dice again to move.
+        </DialogContentText>
+      );
+    }
   };
 
   const showButton = () => {
@@ -55,8 +63,9 @@ const JailDialog = ({ open, setOpen, visit = false }) => {
       );
     }
     return (
-      <Button onClick={handlePayment} color="primary">
-        Get out!
+      <Button onClick={handleClose} color="primary" variant="contained">
+        {/* Get out! */}
+        OK
       </Button>
     );
   };

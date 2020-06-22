@@ -49,7 +49,7 @@ export function addOwner(game, playerIndex, propertyName) {
     ...game,
     fields: {
       ...game.fields,
-      propertyName: newField,
+      [propertyName]: newField,
     },
   };
 }
@@ -66,7 +66,7 @@ export function addHouse(game, propertyName) {
     ...game,
     fields: {
       ...game.fields,
-      propertyName: newField,
+      [propertyName]: newField,
     },
   };
 }
@@ -83,7 +83,7 @@ export function addHotel(game, propertyName) {
     ...game,
     fields: {
       ...game.fields,
-      propertyName: newField,
+      [propertyName]: newField,
     },
   };
 }
@@ -101,6 +101,26 @@ export function payAnotherPlayer(game, purchaserIndex, ownerIndex, amount) {
       return {
         ...player,
         cash: player.cash + amount,
+      };
+    } else {
+      return player;
+    }
+  });
+
+  return {
+    ...game,
+    players: newPlayers,
+  };
+}
+
+export function setPlayerJailMoves(game, playerIndex, moves) {
+  const {players} = game;
+
+  const newPlayers = players.map(player => {
+    if (player.index === playerIndex) {
+      return {
+        ...player,
+        jailMoves: moves
       };
     } else {
       return player;
@@ -178,9 +198,6 @@ export function movePlayerToNewField(steps, game) {
 
   const newPlayerField = game.fields[fieldProperty.NAME];
 
-  const newCurrentPlayer = game.currentPlayer + 1;
-  const currentPlayerDiff = newCurrentPlayer - game.players.length;
-
   return {
     ...game,
     fields: {
@@ -201,4 +218,16 @@ export function movePlayerToNewField(steps, game) {
           .players
       : game.players,
   };
+}
+
+export function getNextFieldName(steps, game){
+  const {currentPlayer, fields} = game;
+  const playerFieldName = _.findKey(fields, field => _.findIndex(field.players, playerIndex => playerIndex === currentPlayer) !== -1);
+  const newFieldIndex = getPropertyByName(playerFieldName).INDEX + steps;
+  const diff = newFieldIndex - 39;
+  const passedStart = diff >= 0;
+
+  const newPlayerFieldIndex = passedStart ? diff : newFieldIndex;
+
+  return getPropertyByIndex(newPlayerFieldIndex).TITLE;
 }

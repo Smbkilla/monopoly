@@ -2,12 +2,16 @@ import React from "react";
 
 import Switch, {Case, Default} from "react-switch-case";
 
+import Avatar from "@material-ui/core/Avatar";
+import Badge from "@material-ui/core/Badge";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+import BusinessIcon from "@material-ui/icons/Business";
+import HouseIcon from "@material-ui/icons/House";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import LocalParkingIcon from '@material-ui/icons/LocalParking';
@@ -15,7 +19,7 @@ import LockIcon from '@material-ui/icons/Lock';
 import NotListedLocationIcon from "@material-ui/icons/NotListedLocation";
 import RedeemIcon from "@material-ui/icons/Redeem";
 import TelegramIcon from '@material-ui/icons/Telegram';
-import MotorcycleIcon  from '@material-ui/icons/Motorcycle';
+import MotorcycleIcon from '@material-ui/icons/Motorcycle';
 import DriveEtaIcona from '@material-ui/icons/DriveEta';
 import LocalBarIcon from '@material-ui/icons/LocalBar';
 import WifiIcon from '@material-ui/icons/Wifi';
@@ -25,9 +29,9 @@ import MenuBookIcon from '@material-ui/icons/MenuBook';
 import fieldType from "../../constants/fieldType";
 import playerIcons from "../../constants/playerIcon";
 import useGetFieldPlayers from "../../hooks/useGetFieldPlayers";
+import useGetFieldRealEstate from "../../hooks/useGetFieldRealEstate";
 
 import "./Field.css";
-import Avatar from "@material-ui/core/Avatar";
 
 
 const iconStyle = {
@@ -112,17 +116,42 @@ export default function Field(props) {
 }
 
 function PropertyFieldContent({property}) {
+  const [numberOfHouses, numberOfHotels] = useGetFieldRealEstate(property.NAME);
+
+  const getRealEstate = () => {
+    return (
+      <div className="realEstate">
+        {numberOfHouses > 0 &&
+        <Badge badgeContent={numberOfHouses} color="error">
+          <HouseIcon/>
+        </Badge>
+        }
+        {numberOfHotels > 0 &&
+        <Badge badgeContent={numberOfHotels} color="error">
+          <BusinessIcon/>
+        </Badge>
+        }
+      </div>
+    );
+  };
+
   return (
     <React.Fragment>
-      <CardHeader style={{backgroundColor: property.COLOR}}/>
+      <CardHeader style={{backgroundColor: property.COLOR}} title={getRealEstate()} disableTypography={true}/>
       <CardContent className="cardContent">
         <Grid container direction="column" alignItems="center">
-            <Grid item xs={5} container justify="center">
-              <Typography className="title" variant="button">
-                {property.TITLE}
-              </Typography>
+          <Grid item xs={5} container justify="center">
+            <Typography className="title" variant="button">
+              {property.TITLE}
+            </Typography>
+          </Grid>
+          <Grid item xs={7} container justify="space-around" direction="row" spacing={3}>
+            <Grid item xs={6} container justify="center">
+            </Grid>
+            <Grid item xs={6} container justify="center">
             </Grid>
           </Grid>
+        </Grid>
       </CardContent>
       <CardActions className="cardActions">
         <Typography className="price" variant="button" component="h6">

@@ -20,7 +20,7 @@ export default function Home() {
         </Typography>
       </Grid>
       <Grid item xs={12}>
-        <img className="image" alt="cast-picture" src={cast}/>
+        <img className="image" alt="cast" src={cast}/>
       </Grid>
       <Grid item xs={12}>
         <Typography className="title" variant="h3">
