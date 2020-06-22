@@ -1,16 +1,9 @@
 import React, {useContext} from "react";
 
-import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
-  DialogActions,
-  Button,
-} from "@material-ui/core";
+import {Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle,} from "@material-ui/core";
 
 import {GameContext} from "../../App";
-import {removePlayerFunds, addOwner, addHouse, addHotel, addGameFunds} from "../../util/playerUtil";
+import {addHotel, addHouse, addOwner} from "../../util/playerUtil";
 import {useCanBuyHotel, useCanBuyHouse} from "../../hooks/canBuyRealEstate";
 
 const BuyDialog = ({

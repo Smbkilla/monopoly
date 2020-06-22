@@ -32,7 +32,6 @@ import useGetFieldPlayers from "../../hooks/useGetFieldPlayers";
 import useGetFieldRealEstate from "../../hooks/useGetFieldRealEstate";
 
 import "./Field.css";
-import {heIL} from "@material-ui/core/locale";
 
 const iconStyle = {
   width: "100%",
