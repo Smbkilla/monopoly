@@ -109,34 +109,34 @@ const Board = () => {
 
             {/* drugi redak */}
             <Grid container direction="row" justify="space-around" alignContent="center" style={{marginTop: 10}}>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.JAIL}/>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.BERNADETTE_OFFICE}/>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.SHELDON_WIFI}/>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.AMY_LAB}/>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.MRS_WOLOWITZ_HOUSE}/>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.SOYUZ_ROCKET}/>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.MODEL_TRAIN_STORE}/>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.ROOMATE_AGREEMENT_2}/>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.THE_COMIC_CENTER_OF_PASADENA}/>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.THE_CHEESECAKE_FACTORY}/>
               </Grid>
             </Grid>
@@ -144,34 +144,34 @@ const Board = () => {
             {/* treci redak */}
 
             <Grid container direction="row" justify="space-around" alignContent="center" style={{marginTop: 10}}>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.PARKING}/>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.SHELDON_OFFICE}/>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.FORTUNE_COOKIE_2}/>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.HOWARD_LAB}/>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.LEONARD_LAB}/>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.LEONARD_CAR}/>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.RAJ_OFFICE}/>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.SHELDON_PARKING_SPACE}/>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.PENNY_WINE}/>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.PHYSICS_DEPARTMENT_CAFETERIA}/>
               </Grid>
             </Grid>
@@ -179,34 +179,34 @@ const Board = () => {
             {/* cetvrti redak */}
 
             <Grid container direction="row" justify="space-around" alignContent="center" style={{marginTop: 10}}>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.GO_TO_JAIL}/>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.AMY_APARTMENT}/>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.RAJ_APARTMENT}/>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.ROOMATE_AGREEMENT_3}/>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.HOWARD_AND_BERNADETTE_APARTMENT}/>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.HOWARD_SCOOTER}/>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.FORTUNE_COOKIE_3}/>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.PENNY_APARMENT}/>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.BERNAETTE_RING}/>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1} container justify="space-around" alignContent="center">
                 <Field property={properties.SHELDON_AND_LEONARD_APARTMENT}/>
               </Grid>
             </Grid>
