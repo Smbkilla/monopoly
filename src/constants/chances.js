@@ -1,62 +1,62 @@
 const chances = [
   {
-    TITLE: "Pay 100",
+    TITLE: "You've got a speeding ticket, pay 200",
+    AMOUNT: 200,
+    TYPE: true, // pay
+  },
+  {
+    TITLE: "Your grandmother passed away, collect 300",
+    AMOUNT: 300,
+    TYPE: false, // get
+  },
+  {
+    TITLE: "Neighbours complain on your noisy party, pay 100",
     AMOUNT: 100,
     TYPE: true,
   },
   {
-    TITLE: "Get 100",
-    AMOUNT: 100,
+    TITLE: "Lottery win, collect 500",
+    AMOUNT: 500,
     TYPE: false,
   },
   {
-    TITLE: "Pay 100",
-    AMOUNT: 100,
+    TITLE: "Take a trip to Bahamas, pay 1000",
+    AMOUNT: 1000,
     TYPE: true,
   },
   {
-    TITLE: "Get 100",
-    AMOUNT: 100,
+    TITLE: "You have won a crossword competition, collect 500",
+    AMOUNT: 500,
     TYPE: false,
   },
   {
-    TITLE: "Pay 100",
-    AMOUNT: 100,
+    TITLE: "Repair your property, pay 700",
+    AMOUNT: 700,
     TYPE: true,
   },
   {
-    TITLE: "Get 100",
-    AMOUNT: 100,
+    TITLE: "You've found a check of 2000",
+    AMOUNT: 2000,
     TYPE: false,
   },
   {
-    TITLE: "Pay 100",
-    AMOUNT: 100,
+    TITLE: "Your dog damaged neigbour's car, pay 200",
+    AMOUNT: 200,
     TYPE: true,
   },
   {
-    TITLE: "Get 100",
-    AMOUNT: 100,
+    TITLE: "Return of stock investment, collect 600",
+    AMOUNT: 600,
     TYPE: false,
   },
   {
-    TITLE: "Pay 100",
-    AMOUNT: 100,
+    TITLE: "Invest in stocks, pay 200",
+    AMOUNT: 200,
     TYPE: true,
   },
   {
-    TITLE: "Get 100",
-    AMOUNT: 100,
-    TYPE: false,
-  },
-  {
-    TITLE: "Pay 100",
-    AMOUNT: 100,
-    TYPE: true,
-  },
-  {
-    TITLE: "Get 100",
-    AMOUNT: 100,
+    TITLE: "You recieved a bonus on your job, collect 1000",
+    AMOUNT: 1000,
     TYPE: false,
   },
 ];
