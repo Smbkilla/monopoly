@@ -108,7 +108,7 @@ const Board = () => {
             </Grid>
 
             {/* drugi redak */}
-            <Grid container direction="row" justify="space-around" alignContent="center">
+            <Grid container direction="row" justify="space-around" alignContent="center" style={{marginTop: 10}}>
               <Grid item xs={1}>
                 <Field property={properties.JAIL}/>
               </Grid>
@@ -143,7 +143,7 @@ const Board = () => {
 
             {/* treci redak */}
 
-            <Grid container direction="row" justify="space-around" alignContent="center">
+            <Grid container direction="row" justify="space-around" alignContent="center" style={{marginTop: 10}}>
               <Grid item xs={1}>
                 <Field property={properties.PARKING}/>
               </Grid>
@@ -178,7 +178,7 @@ const Board = () => {
 
             {/* cetvrti redak */}
 
-            <Grid container direction="row" justify="space-around" alignContent="center">
+            <Grid container direction="row" justify="space-around" alignContent="center" style={{marginTop: 10}}>
               <Grid item xs={1}>
                 <Field property={properties.GO_TO_JAIL}/>
               </Grid>

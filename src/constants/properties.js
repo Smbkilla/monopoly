@@ -3,7 +3,7 @@ import colors from "./colors";
 
 export default {
   START: {
-    TITLE: "Collect $200 salary as you pass",
+    TITLE: "Start collect $200",
     NAME: "start",
     TYPE: fieldTypes.START,
     COLOR: colors.BOARD_COLORS.WHITE,
@@ -41,7 +41,7 @@ export default {
     },
   },
   NEW_COMIC_BOOK_DAY: {
-    TITLE: "New comic book day",
+    TITLE: "New comic book",
     NAME: "newComicBookDay",
     TYPE: fieldTypes.BOOK,
     COLOR: colors.BOARD_COLORS.WHITE,
@@ -92,7 +92,7 @@ export default {
     }
   },
   INTERNATIONAL_SPACE_STATION: {
-    TITLE: "International space station",
+    TITLE: "Inter national space station",
     NAME: "internationalSpaceStation",
     TYPE: fieldTypes.PROPERTY,
     COLOR: colors.BOARD_COLORS.LIGHT_BLUE,
@@ -186,7 +186,7 @@ export default {
     INDEX: 17,
   },
   THE_COMIC_CENTER_OF_PASADENA: {
-    TITLE: "The comic center of Pasadena",
+    TITLE: "Comic center of Pasadena",
     NAME: "theComicCenterOfPasadena",
     TYPE: fieldTypes.PROPERTY,
     COLOR: colors.BOARD_COLORS.ORANGE,

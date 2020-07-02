@@ -53,7 +53,7 @@ export default function Field(props) {
   const players = useGetFieldPlayers(property.NAME);
 
   return (
-    <Card className="Card">
+    <Card className="Card" style={{"width": "100px", height: "150px"}}>
       <Switch condition={property.TYPE}>
         <Case value={fieldType.PROPERTY}>
           <PropertyFieldContent {...props}/>
@@ -165,9 +165,11 @@ function PropertyFieldContent({property}) {
 function IconFieldContent({property, icon}) {
   return (
     <React.Fragment>
-      <CardContent className="cardContent">
-        <Grid container direction="column" alignItems="center">
-          <Grid item xs={6} container justify="center">
+      <CardHeader style={{height: property.PRICE ? "10px" : "20px", padding: "0"}}
+                  disableTypography={true}/>
+      <CardContent className="cardContent" style={{height: property.PRICE ? "110px" : "100px", padding: "0"}}>
+        <Grid container direction="column" alignItems="center" spacing={property.PRICE ? 0 : 2}>
+          <Grid item xs={4} container justify="center">
             <Typography className="title" variant="button" component="h6" style={{fontSize: "12px", fontWeight: "600"}}>
               {property.TITLE}
             </Typography>
@@ -177,11 +179,12 @@ function IconFieldContent({property, icon}) {
           </Grid>
         </Grid>
       </CardContent>
-      <CardActions className="cardActions" style={{height: "30px", padding: "0"}}>
+      {property.PRICE &&
+      <CardActions className="cardActions" style={{height: "40px", padding: "0"}}>
         <Typography className="title" variant="button" component="h6" style={{fontSize: "12px", fontWeight: "600"}}>
-          {property.PRICE ? property.PRICE.PROPERTY : ""}
+          {property.PRICE.PROPERTY}
         </Typography>
-      </CardActions>
+      </CardActions>}
     </React.Fragment>
   )
 };
